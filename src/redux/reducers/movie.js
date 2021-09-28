@@ -1,23 +1,16 @@
 import * as ActionTypes from '../actions/action-types';
 
 const initialState = {
-  movies: [{
-    id: 24428,
-    title: 'The Avengers',
-    genres: [
-      {
-        id: 18,
-        name: 'Drama',
-      },
-    ],
-  }],
+  movies: [],
   categories: [],
 };
 
 const movieReducers = (state = initialState, { type, payload }) => {
   switch (type) {
     case ActionTypes.SEARCH_MOVIE:
-      return { ...state, searchmovie: payload };
+      return { ...state, movies: payload };
+    case ActionTypes.FETCH_MOVIE:
+      return { ...state, movies: payload };
     default:
       return state;
   }

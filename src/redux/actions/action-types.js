@@ -1,3 +1,4 @@
+export const FETCH_MOVIE = 'FETCH_MOVIE';
 export const SEARCH_MOVIE = 'SEARCH_MOVIE';
 export const UPDATE_MOVIES = 'UPDATE_MOVIES';
 export const GET_CATEGORIES = 'GET_CATEGORIES';
