@@ -2,7 +2,6 @@ import * as ActionTypes from '../actions/action-types';
 
 const initialState = {
   movies: [],
-  categories: [],
 };
 
 const movieReducers = (state = initialState, { type, payload }) => {
