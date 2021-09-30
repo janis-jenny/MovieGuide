@@ -13,14 +13,20 @@ const updateMovies = (payload) => ({
 });
 
 const getCategories = (categories) => ({
-  type: ActionTypes.GET_CATEGORIES,
+  type: Acti8onTypes.GET_CATEGORIES,
   payload: categories,
 }); */
 
 const fetchMovie = () => async (dispatch) => {
   // const cleanSearchMovie = searchMovie.trim().toLowerCase();${cleanSearchMovie}``
-  const response = await api.get('/search/movie?api_key=3694c3d2467f000d4597dfc9c1c650b8&query=avengers');
-  console.log(response.data.results);
+  dispatch(action.movieSearchRequest());
+  try {
+    const response = await api.get('/search/movie?api_key=3694c3d2467f000d4597dfc9c1c650b8&query=avengers');
+    // console.log(response.data.results);
+    dispatch(action.movieSearchSuccess(response.data.results));
+  } catch (error) {
+    dispatch(action.movieSearchError(error));
+  }
 };
 
 export default fetchMovie;
