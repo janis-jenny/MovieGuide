@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import fetchMovie from '../redux/actions/actionCreators';
+import fetchMovie from '../../redux/actions/actionCreators';
 
 const SearchField = () => {
   const [searchText, setSearchText] = useState('');
