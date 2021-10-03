@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import fetchMovie from '../../redux/actions/actionCreators';
 
 const SearchField = () => {
   const [searchText, setSearchText] = useState('');
   // const [category, setCategory] = useState('')
   const dispatch = useDispatch();
+  const history = useHistory();
 
   function searchHandler(e) {
     e.preventDefault();
     dispatch(fetchMovie(searchText.toLowerCase()));
+    history.push('/search');
   }
 
   return (
