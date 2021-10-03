@@ -9,7 +9,7 @@ const SearchField = () => {
 
   function searchHandler(e) {
     e.preventDefault();
-    dispatch(fetchMovie());
+    dispatch(fetchMovie(searchText.toLowerCase()));
   }
 
   return (
