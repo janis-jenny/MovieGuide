@@ -1,8 +1,7 @@
-/* eslint-disable camelcase */
-/* eslint-disable no-console */
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import fetchMovie from '../../redux/actions/actionCreators';
+import SearchField from '../shared/Search';
 
 const MovieList = () => {
   const movies = useSelector((state) => state.allMovies.movies);
@@ -12,6 +11,7 @@ const MovieList = () => {
     dispatch(fetchMovie());
   }, []);
 
+  // if (item.media_type === 'movie' && item.media_type === 'tv')
   const listMarkUp = movies.map((item) => (
     <div className="row d-flex" key={item.id}>
       <div className="col-4">
@@ -27,7 +27,11 @@ const MovieList = () => {
   ));
 
   return (
-    <div className="container">{listMarkUp}</div>
+    <div>
+      <SearchField />
+      <div className="container">{listMarkUp}</div>
+    </div>
   );
 };
+
 export default MovieList;

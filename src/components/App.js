@@ -12,7 +12,6 @@ const App = () => (
         <Route path="/" exact component={Home} />
         <Route path="/search" exact component={MovieList} />
         <Route path="/movie/:movieId" exact component={MovieDetails} />
-        <Route>404 Not found!</Route>
       </Switch>
     </Router>
   </div>
