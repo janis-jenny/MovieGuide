@@ -8,7 +8,6 @@ import Error from '../shared/Error';
 const MovieList = () => {
   const { movies, error, loading } = useSelector((state) => state.allMovies);
   const dispatch = useDispatch();
-  console.log(movies);
   useEffect(() => {
     dispatch(fetchMovie());
   }, []);
@@ -18,7 +17,7 @@ const MovieList = () => {
     if (loading) return <Loader />;
     if (error) return <Error />;
 
-    return movies.map((item) => (
+    return movies.filter((item) => item.media_type !== 'person').map((item) => (
       <div className="row d-flex" key={item.id}>
         <div className="col-4">
           <img src={`https://www.themoviedb.org/t/p/w220_and_h330_face/${item.poster_path}`} alt="poster" />
