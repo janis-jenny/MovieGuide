@@ -25,7 +25,7 @@ const MovieList = () => {
 
     return movies.filter((item) => item.media_type !== 'person' && item.title !== undefined).map((item) => (
       <div className="row d-flex" key={item.id}>
-        <div className="col-4">
+        <div className="col-3">
           <img src={`https://www.themoviedb.org/t/p/w220_and_h330_face/${item.poster_path}`} alt="poster" />
         </div>
         <ul className="col-8">
