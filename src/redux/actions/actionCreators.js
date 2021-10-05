@@ -5,8 +5,8 @@ import * as action from './index';
 require('dotenv').config();
 
 const fetchMovie = (searchInput) => async (dispatch) => {
-  dispatch(action.movieSearchRequest());
   try {
+    dispatch(action.movieSearchRequest());
     const response = await BASE_URL.get(`/search/multi?api_key=${API_KEY}&query=${searchInput}`);
     console.log(response.data.results);
     dispatch(action.movieSearchSuccess(response.data.results));

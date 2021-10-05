@@ -23,16 +23,16 @@ const MovieList = () => {
     }
     if (error) return <Error />;
 
-    return movies.filter((item) => item.media_type !== 'person' && item.title !== undefined).map((item) => (
-      <div className="row d-flex" key={item.id}>
-        <div className="col-3">
+    return movies.filter((item) => item.media_type !== 'person' && item.title !== undefined && item.title !== 'UNdefined').map((item) => (
+      <div className="row d-flex justify-content-center mx-0" key={item.id}>
+        <div className="col-2 border rounded m-0 p-0">
           <img src={`https://www.themoviedb.org/t/p/w220_and_h330_face/${item.poster_path}`} alt="poster" />
         </div>
-        <ul className="col-8">
+        <ul className="col-8 border rounded m-0 p-0 content">
           <li>
-            <h4>{item.title}</h4>
-            <span>{item.release_date}</span>
-            <p className="paragraph">{item.overview}</p>
+            <h4 className="p-2">{item.title}</h4>
+            <span className="p-2">{item.release_date}</span>
+            <p className="paragraph px-2 my-3">{item.overview}</p>
           </li>
         </ul>
       </div>
