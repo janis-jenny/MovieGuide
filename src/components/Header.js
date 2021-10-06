@@ -1,28 +1,48 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable jsx-a11y/no-noninteractive-element-to-interactive-role */
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { navItems } from './NavItems';
 
 const Header = () => (
   <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div className="container-fluid">
-      <a className="navbar-brand" href="#">MovieGuide</a>
-      <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-        <span className="navbar-toggler-icon" />
-      </button>
-
-      <div className="collapse navbar-collapse" id="navbarColor01">
-        <ul className="navbar-nav me-auto">
-          <li className="nav-item dropdown">
-            <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Movies</a>
-            <div className="dropdown-menu">
-              <a className="dropdown-item" href="#">Popular</a>
-              <a className="dropdown-item" href="#">Now Playing</a>
-              <a className="dropdown-item" href="#">Upcoming</a>
-              <a className="dropdown-item" href="#">Top Rated</a>
-            </div>
-          </li>
-        </ul>
-      </div>
+    <div>
+      <Link to="/" className="navbar-brand px-4 mx-0">MovieGuide</Link>
     </div>
+    <ul className="nav-items dropdown d-flex justify-content-center m-0">
+      {navItems.map((item) => {
+        if (item.title === 'Movies') {
+          return (
+            <li
+              href="#"
+              role="button"
+              id="dropdownMenuLink"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              key={item.id}
+              className={item.cName}
+/*               onMouseEnter={() => setDropdown(true)}
+              onMouseLeave={() => setDropdown(false)} */
+            >
+              {item.title}
+              {/* {dropdown && <Dropdown />} */}
+            </li>
+          );
+        }
+        return (
+          <li
+            href="#"
+            role="button"
+            id="dropdownMenuLink"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            key={item.id}
+            className={item.cName}
+          >
+            {item.title}
+          </li>
+        );
+      })}
+    </ul>
   </nav>
 );
 export default Header;
