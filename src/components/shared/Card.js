@@ -27,7 +27,7 @@ const Card = ({
         </Text>
       </Box>
       <Box>
-        <Text textAlign="center" fontSize="lg" fontWeight="normal" color="gray.50">
+        <Text textAlign="center" fontSize="lg" fontWeight="normal">
           {date}
         </Text>
       </Box>
