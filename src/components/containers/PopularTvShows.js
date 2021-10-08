@@ -27,7 +27,7 @@ const PopularTvShows = () => {
     }
     if (error) return <Error />;
 
-    return movies.map((item) => (
+    return movies.filter((item) => item.poster_path !== null).map((item) => (
       <Card
         name={item.name}
         img={`https://www.themoviedb.org/t/p/w220_and_h330_face/${item.poster_path}`}

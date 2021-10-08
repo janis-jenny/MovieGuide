@@ -15,6 +15,17 @@ export const fetchPopularTvShows = () => async (dispatch) => {
   }
 };
 
+export const fetchTopRatedShows = () => async (dispatch) => {
+  try {
+    dispatch(action.movieSearchRequest());
+    const response = await BASE_URL.get(`/tv/top_rated?api_key=${API_KEY}&page=1`);
+    console.log(response.data.results);
+    dispatch(action.movieSearchSuccess(response.data.results));
+  } catch (error) {
+    dispatch(action.movieSearchError(error));
+  }
+};
+
 const fetchPopularMovie = () => async (dispatch) => {
   try {
     dispatch(action.movieSearchRequest());
