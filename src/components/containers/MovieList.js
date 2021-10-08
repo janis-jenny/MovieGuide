@@ -1,6 +1,7 @@
 import { Box, Grid, GridItem } from '@chakra-ui/react';
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import SearchField from '../shared/Search';
 import Loader from '../shared/Loader';
 import Error from '../shared/Error';
@@ -19,7 +20,7 @@ const MovieList = () => {
     if (error) return <Error />;
 
     return movies.filter((item) => item.media_type !== 'person' && item.title !== undefined && item.poster_path !== null).map((item) => (
-      <div className="row d-flex justify-content-center mx-0" key={item.id}>
+      <Link to={`/${item.id}`} id={item.id} className="row d-flex justify-content-center mx-0" key={item.id}>
         <div className="col-2 border rounded m-0 p-0">
           <img src={`https://www.themoviedb.org/t/p/w220_and_h330_face/${item.poster_path}`} alt="poster" />
         </div>
@@ -30,7 +31,7 @@ const MovieList = () => {
             <p className="paragraph px-2 my-3">{item.overview}</p>
           </li>
         </ul>
-      </div>
+      </Link>
     ));
   };
 

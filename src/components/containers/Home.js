@@ -6,7 +6,7 @@ import Loader from '../shared/Loader';
 import Error from '../shared/Error';
 
 const Home = () => {
-  const { error, loading } = useSelector((state) => state.allMovies);
+  const { error, loading } = useSelector((state) => state.allMoviesTVs);
 
   const renderList = () => {
     if (loading) {
