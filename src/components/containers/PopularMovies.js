@@ -7,15 +7,13 @@ import Error from '../shared/Error';
 import Card from '../shared/Card';
 
 const PopularMovies = () => {
-  const { movies, error, loading } = useSelector((state) => state.allMovies);
+  const { movies, error, loading } = useSelector((state) => state.allMoviesTVs);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchPopularMovie());
   }, []);
 
-  console.log('here!!!!');
-  console.log(movies);
   const renderMovies = () => {
     if (loading) {
       return (

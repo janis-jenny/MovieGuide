@@ -1,9 +1,8 @@
-/* eslint-disable import/named */
 import { combineReducers } from 'redux';
-import movieReducers from './movie';
+import movieTvReducers from './movie';
 
 const reducers = combineReducers({
-  allMovies: movieReducers,
+  allMoviesTVs: movieTvReducers,
 });
 
 export default reducers;

@@ -7,15 +7,13 @@ import Error from '../shared/Error';
 import Card from '../shared/Card';
 
 const UpcomingMovies = () => {
-  const { movies, error, loading } = useSelector((state) => state.allMovies);
+  const { movies, error, loading } = useSelector((state) => state.allMoviesTVs);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchUpcomingMovie());
   }, []);
 
-  console.log('here!!!!');
-  console.log(movies);
   const renderMovies = () => {
     if (loading) {
       return (

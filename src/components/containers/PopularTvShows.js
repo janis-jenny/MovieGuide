@@ -8,15 +8,13 @@ import Error from '../shared/Error';
 import Card from '../shared/Card';
 
 const PopularTvShows = () => {
-  const { movies, error, loading } = useSelector((state) => state.allMovies);
+  const { movies, error, loading } = useSelector((state) => state.allMoviesTVs);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchPopularTvShows());
   }, []);
 
-  console.log('here!!!!');
-  console.log(movies);
   const renderTvShows = () => {
     if (loading) {
       return (

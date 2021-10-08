@@ -6,17 +6,17 @@ const initialState = {
   error: null,
 };
 
-const movieReducers = (state = initialState, { type, payload }) => {
+const movieTvReducers = (state = initialState, { type, payload }) => {
   switch (type) {
-    case ActionTypes.FETCH_MOVIE_REQUEST:
+    case ActionTypes.FETCH_REQUEST:
       return { ...state, loading: true, error: null };
-    case ActionTypes.FETCH_MOVIE_SUCCCESS:
+    case ActionTypes.FETCH_SUCCCESS:
       return { ...state, loading: false, movies: payload };
-    case ActionTypes.FETCH_MOVIE_ERROR:
+    case ActionTypes.FETCH_ERROR:
       return { ...state, loading: false, error: payload };
     default:
       return state;
   }
 };
 
-export default movieReducers;
+export default movieTvReducers;
