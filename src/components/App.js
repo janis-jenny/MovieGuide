@@ -3,6 +3,7 @@ import Header from './Header';
 import MovieDetails from './containers/MovieDetails';
 import MovieList from './containers/MovieList';
 import Home from './containers/Home';
+import PopularMovies from './containers/PopularMovies';
 
 const App = () => (
   <div className="App">
@@ -10,6 +11,7 @@ const App = () => (
       <Header />
       <Switch>
         <Route path="/" exact component={Home} />
+        <Route path="/popular" exact component={PopularMovies} />
         <Route path="/search" exact component={MovieList} />
         <Route path="/movie/:movieId" exact component={MovieDetails} />
       </Switch>

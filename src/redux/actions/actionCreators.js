@@ -4,7 +4,29 @@ import * as action from './index';
 
 require('dotenv').config();
 
-const fetchMovie = (searchInput) => async (dispatch) => {
+const fetchPopularMovie = () => async (dispatch) => {
+  try {
+    dispatch(action.movieSearchRequest());
+    const response = await BASE_URL.get(`/movie/popular?api_key=${API_KEY}&page=1`);
+    console.log(response.data.results);
+    dispatch(action.movieSearchSuccess(response.data.results));
+  } catch (error) {
+    dispatch(action.movieSearchError(error));
+  }
+};
+
+export const fetchUpcomingMovie = () => async (dispatch) => {
+  try {
+    dispatch(action.movieSearchRequest());
+    const response = await BASE_URL.get(`/movie/upcoming?api_key=${API_KEY}&page=1`);
+    console.log(response.data.results);
+    dispatch(action.movieSearchSuccess(response.data.results));
+  } catch (error) {
+    dispatch(action.movieSearchError(error));
+  }
+};
+
+export const fetchMovie = (searchInput) => async (dispatch) => {
   try {
     dispatch(action.movieSearchRequest());
     const response = await BASE_URL.get(`/search/multi?api_key=${API_KEY}&query=${searchInput}`);
@@ -15,4 +37,4 @@ const fetchMovie = (searchInput) => async (dispatch) => {
   }
 };
 
-export default fetchMovie;
+export default fetchPopularMovie;
