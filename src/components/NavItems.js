@@ -25,3 +25,18 @@ export const dropdownItems = [
     cName: 'dropdown-item show',
   },
 ];
+
+export const dropdownTVItems = [
+  {
+    id: 1,
+    title: 'Popular',
+    path: './popularTV',
+    cName: 'dropdown-item show',
+  },
+  {
+    id: 2,
+    title: 'Top Rated',
+    path: './toprated',
+    cName: 'dropdown-item show',
+  },
+];

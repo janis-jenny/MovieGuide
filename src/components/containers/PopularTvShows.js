@@ -1,22 +1,23 @@
+/* eslint-disable max-len */
 import { Box, Grid, GridItem } from '@chakra-ui/react';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import fetchPopularMovie from '../../redux/actions/actionCreators';
+import { fetchPopularTvShows } from '../../redux/actions/actionCreators';
 import Loader from '../shared/Loader';
 import Error from '../shared/Error';
 import Card from '../shared/Card';
 
-const PopularMovies = () => {
+const PopularTvShows = () => {
   const { movies, error, loading } = useSelector((state) => state.allMovies);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchPopularMovie());
+    dispatch(fetchPopularTvShows());
   }, []);
 
   console.log('here!!!!');
   console.log(movies);
-  const renderMovies = () => {
+  const renderTvShows = () => {
     if (loading) {
       return (
         <GridItem colSpan={5} className="my-5">
@@ -26,12 +27,12 @@ const PopularMovies = () => {
     }
     if (error) return <Error />;
 
-    return movies.filter((item) => item.media_type !== 'person' && item.media_type !== 'tv' && item.title !== undefined && item.poster_path !== null).map((item) => (
+    return movies.map((item) => (
       <Card
-        name={item.title}
+        name={item.name}
         img={`https://www.themoviedb.org/t/p/w220_and_h330_face/${item.poster_path}`}
         loading={loading}
-        date={item.release_date}
+        date={item.first_air_date}
         popularity={item.vote_average}
         id={item.id}
       />
@@ -44,10 +45,10 @@ const PopularMovies = () => {
         templateColumns="repeat(4, 1fr)"
         gap={20}
       >
-        {renderMovies()}
+        {renderTvShows()}
       </Grid>
     </Box>
   );
 };
 
-export default PopularMovies;
+export default PopularTvShows;
