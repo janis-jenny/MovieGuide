@@ -50,7 +50,7 @@ Card.propTypes = {
   loading: PropTypes.bool,
   date: PropTypes.number,
   popularity: PropTypes.number,
-  id: PropTypes.number, // string
+  id: PropTypes.string,
 };
 
 export default Card;
