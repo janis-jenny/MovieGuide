@@ -21,7 +21,7 @@ const Card = ({
       </Box>
       <Box textAlign="center">
         <Text textAlign="center" fontSize="lg" fontWeight="bolder">
-          <Link to={`/${id}`} id={id} className="text-black text-decoration-none px-1">
+          <Link to={`/movie/${id}`} id={id} className="text-black text-decoration-none px-1">
             {name}
           </Link>
         </Text>
