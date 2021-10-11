@@ -20,6 +20,13 @@ const MovieDetails = () => {
   // console.log(movies)
   console.log(movies);
   console.log('here!!!!');
+
+/*   function timeConvert(num) {
+    const hours = Math.floor(num / 60);
+    const minutes = num % 60;
+    return `${hours}:${minutes}`;
+  }
+ */
   const renderDetails = () => {
     if (loading) {
       return (
@@ -39,28 +46,20 @@ const MovieDetails = () => {
         loading={loading}
         date={movies.release_date}
         popularity={movies.vote_average}
-        // genres={movies.genres[0]}
+        genres={movies.genres.map((t) => <span>{t.name}</span>).reduce((prev, curr) => [prev, ', ', curr])}
         time={movies.time}
         tagline={movies.tagline}
         overview={movies.overview}
         status={movies.status}
-        language={movies.language}
+        language={movies.original_language.toUpperCase()}
         budget={movies.budget}
         revenue={movies.revenue}
       />
     )
   };
 
-  return (
-    <Box as="div" w="100%" bg="gray.200" p={5} minH="30vh" className="p-5">
-      <Grid
-        templateColumns="repeat(4, 1fr)"
-        gap={20}
-      >
-        {renderDetails()}
-      </Grid>
-    </Box>
-  );
+  return renderDetails()
+  
 };
 
 export default MovieDetails;

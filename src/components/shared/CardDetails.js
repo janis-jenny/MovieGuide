@@ -1,124 +1,118 @@
 import PropTypes from 'prop-types';
 import {
-  Box, Image, ScaleFade, Text,
+  Grid, Box, Image, ScaleFade, Text,
 } from '@chakra-ui/react';
 import heart from '../../images/heart.png';
 import star from '../../images/star.png';
 import list from '../../images/list.png';
 import tag from '../../images/tag.png';
 
-function timeConvert(n) {
-  const num = n;
-  const hours = (num / 60);
-  const rhours = Math.floor(hours);
-  const minutes = (hours - rhours) * 60;
-  const rminutes = Math.round(minutes);
-  return `${rhours}h ${rminutes}m`;
-}
-
 const CardDetails = ({
-  id, name, img, bgimg, loading, date, popularity, genres,
+  id, name, img, loading, date, popularity, genres,
   time, tagline, overview, status, language, budget, revenue,
 }) => (
-  <ScaleFade initialScale={0.9} in={!loading} className="border rounded">
+  <ScaleFade
+    initialScale={0.9}
+    in={!loading}
+  >
     <Box
       w="100%"
-      position="relative"
-      bg="#fff"
-      boxShadow="xl"
-      bgImage={bgimg}
-      bgPosition="center"
-      bgRepeat="no-repeat"
       key={id}
     >
-      <Box>
-        <Image src={img} alt="poster" w="100%" />
-      </Box>
-      <Box>
-        <Box textAlign="center">
-          <Text textAlign="center" fontSize="lg" fontWeight="bolder">
-            {name}
-          </Text>
+      <Grid
+        templateColumns="repeat(2, 1fr)"
+        gap={20}
+      >
+        <Box display="flex" alignItems="start" px="65" mt="25">
+          <Image src={img} alt="poster" w="55%" h="auto" />
         </Box>
         <Box>
-          <Text textAlign="center" fontSize="lg" fontWeight="normal">
-            {date}
-          </Text>
-          <Text textAlign="center" fontSize="lg" fontWeight="normal">
-            {genres}
-          </Text>
-          <Text textAlign="center" fontSize="lg" fontWeight="normal">
-            {timeConvert(time)}
-          </Text>
+          <Box textAlign="center" mt="25">
+            <Text textAlign="center" fontSize="lg" fontWeight="bolder">
+              {name}
+            </Text>
+          </Box>
+          <Box display="flex" alignItems="center">
+            <Text textAlign="center" fontSize="lg" fontWeight="normal" px="35">
+              {date}
+            </Text>
+            <Text textAlign="center" fontSize="lg" fontWeight="normal" px="35">
+              {genres}
+            </Text>
+            <Text textAlign="center" fontSize="lg" fontWeight="normal" px="35">
+              {time}
+            </Text>
+          </Box>
+          <Box display="flex" alignItems="center">
+            <Box display="flex" alignItems="center" mx="10">
+              <Text textAlign="center" fontSize="lg" fontWeight="bold">
+                {`${popularity * 10}%`}
+              </Text>
+              <Box display="flex" flexDirection="column" px="35">
+                <Text textAlign="center" fontSize="lg" fontWeight="bold">
+                  User
+                </Text>
+                <Text textAlign="center" fontSize="lg" fontWeight="bold">
+                  Score
+                </Text>
+              </Box>
+            </Box>
+            <Box display="flex" alignItems="center" mx="5">
+              <Image src={list} alt="list icon" w="9%" mx="9" />
+              <Image src={heart} alt="heart icon" w="9%" mx="9" />
+              <Image src={tag} alt="tag icon" w="9%" mx="9" />
+              <Image src={star} alt="star icon" w="9%" mx="9" />
+            </Box>
+          </Box>
+          <Box display="flex" justifyContent="center">
+            <Text textAlign="center" fontSize="lg" fontWeight="medium" as="em">
+              {tagline}
+            </Text>
+          </Box>
+          <Box>
+            <Text textAlign="center" fontSize="lg" fontWeight="bold" mt="25" px="6">
+              Overview
+            </Text>
+            <Text textAlign="center" fontSize="lg" fontWeight="normal" mx="20">
+              {overview}
+            </Text>
+          </Box>
+          <Box display="flex" justifyContent="center" mt="20">
+            <Box px="12">
+              <Text textAlign="center" fontSize="lg" fontWeight="bold">
+                Status
+              </Text>
+              <Text textAlign="center" fontSize="lg" fontWeight="normal">
+                {status}
+              </Text>
+            </Box>
+            <Box px="12">
+              <Text textAlign="center" fontSize="lg" fontWeight="bold">
+                Language
+              </Text>
+              <Text textAlign="center" fontSize="lg" fontWeight="normal">
+                {language}
+              </Text>
+            </Box>
+            <Box px="12">
+              <Text textAlign="center" fontSize="lg" fontWeight="bold">
+                Budget
+              </Text>
+              <Text textAlign="center" fontSize="lg" fontWeight="normal">
+                {budget}
+              </Text>
+            </Box>
+            <Box px="12">
+              <Text textAlign="center" fontSize="lg" fontWeight="bold">
+                Revenue
+              </Text>
+              <Text textAlign="center" fontSize="lg" fontWeight="normal">
+                {revenue}
+              </Text>
+            </Box>
+          </Box>
         </Box>
-        <Box textAlign="center">
-          <Text textAlign="center" fontSize="lg" fontWeight="bold" className="py-1">
-            {`${popularity * 10}%`}
-          </Text>
-          <Text textAlign="center" fontSize="lg" fontWeight="bold" className="py-1">
-            User Score
-          </Text>
-          <Box>
-            <Image src={list} alt="list icon" w="100%" />
-          </Box>
-          <Box>
-            <Image src={heart} alt="heart icon" w="100%" />
-          </Box>
-          <Box>
-            <Image src={tag} alt="tag icon" w="100%" />
-          </Box>
-          <Box>
-            <Image src={star} alt="star icon" w="100%" />
-          </Box>
-        </Box>
-        <Box>
-          <Text textAlign="center" fontSize="lg" fontWeight="normal">
-            {tagline}
-          </Text>
-        </Box>
-        <Box>
-          <Text textAlign="center" fontSize="lg" fontWeight="normal">
-            Overview
-          </Text>
-          <Text textAlign="center" fontSize="lg" fontWeight="normal">
-            {overview}
-          </Text>
-        </Box>
-        <Box>
-          <Box>
-            <Text textAlign="center" fontSize="lg" fontWeight="normal">
-              Status
-            </Text>
-            <Text textAlign="center" fontSize="lg" fontWeight="normal">
-              {status}
-            </Text>
-          </Box>
-          <Box>
-            <Text textAlign="center" fontSize="lg" fontWeight="normal">
-              Language
-            </Text>
-            <Text textAlign="center" fontSize="lg" fontWeight="normal">
-              {language}
-            </Text>
-          </Box>
-          <Box>
-            <Text textAlign="center" fontSize="lg" fontWeight="normal">
-              Budget
-            </Text>
-            <Text textAlign="center" fontSize="lg" fontWeight="normal">
-              {budget}
-            </Text>
-          </Box>
-          <Box>
-            <Text textAlign="center" fontSize="lg" fontWeight="normal">
-              Revenue
-            </Text>
-            <Text textAlign="center" fontSize="lg" fontWeight="normal">
-              {revenue}
-            </Text>
-          </Box>
-        </Box>
-      </Box>
+      </Grid>
     </Box>
   </ScaleFade>
 );
@@ -127,18 +121,18 @@ CardDetails.defaultProps = {
   id: '',
   name: '',
   img: '',
-  bgimg: '',
+  // bgimg: '',
   loading: false,
   date: '',
   popularity: '',
   genres: '',
-  time: 0,
+  time: '',
   tagline: '',
   overview: '',
   status: '',
   language: '',
-  budget: 0,
-  revenue: 0,
+  budget: '',
+  revenue: '',
 };
 
 CardDetails.propTypes = {
@@ -148,7 +142,7 @@ CardDetails.propTypes = {
   loading: PropTypes.bool,
   date: PropTypes.number,
   popularity: PropTypes.number,
-  bgimg: PropTypes.string,
+  // bgimg: PropTypes.string,
   genres: PropTypes.arrayOf(PropTypes.string),
   time: PropTypes.number,
   tagline: PropTypes.string,
