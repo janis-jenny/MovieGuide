@@ -27,6 +27,7 @@ const PopularTvShows = () => {
 
     return movies.filter((item) => item.poster_path !== null).map((item) => (
       <Card
+        key={item.id}
         name={item.name}
         img={`https://www.themoviedb.org/t/p/w220_and_h330_face/${item.poster_path}`}
         loading={loading}

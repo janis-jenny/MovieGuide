@@ -26,6 +26,7 @@ const PopularMovies = () => {
 
     return movies.filter((item) => item.media_type !== 'person' && item.media_type !== 'tv' && item.title !== undefined && item.poster_path !== null).map((item) => (
       <Card
+        key={item.id}
         name={item.title}
         img={`https://www.themoviedb.org/t/p/w220_and_h330_face/${item.poster_path}`}
         loading={loading}
