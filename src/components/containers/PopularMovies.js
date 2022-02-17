@@ -28,7 +28,7 @@ const PopularMovies = () => {
     console.log(movies);
     console.log('MOVIES AQUI');
     return movies.filter((item) => item.media_type !== 'person' && item.media_type !== 'tv' && item.title !== undefined
-      && item.poster_path !== null).map((item) => (
+      && !!item.poster_path).map((item) => (
         <Card
           key={item.id}
           name={item.title}

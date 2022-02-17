@@ -19,7 +19,7 @@ const MovieList = () => {
     }
     if (error) return <Error />;
 
-    return movies.filter((item) => item.media_type !== 'person' && item.title !== undefined && item.poster_path !== null).map((item) => (
+    return movies.filter((item) => item.media_type !== 'person' && item.title !== undefined && !!item.poster_path).map((item) => (
       <Link to={`/movie/${item.id}`} id={item.id} className="row d-flex justify-content-center text-decoration-none text-black mx-0" key={item.id}>
         <div className="col-2 border rounded m-0 p-0">
           <img src={`https://www.themoviedb.org/t/p/w220_and_h330_face/${item.poster_path}`} alt="poster" />

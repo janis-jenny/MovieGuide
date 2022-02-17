@@ -25,7 +25,7 @@ const PopularTvShows = () => {
     }
     if (error) return <Error />;
 
-    return movies.filter((item) => item.poster_path !== null).map((item) => (
+    return movies.filter((item) => !!item.poster_path).map((item) => (
       <Card
         key={item.id}
         name={item.name}

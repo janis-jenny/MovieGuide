@@ -36,7 +36,7 @@ export const dropdownTVItems = [
   {
     id: 2,
     title: 'Top Rated',
-    path: './toprated',
+    path: './top_rated',
     cName: 'dropdown-item show',
   },
 ];

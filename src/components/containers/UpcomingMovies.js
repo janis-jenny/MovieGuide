@@ -24,7 +24,7 @@ const UpcomingMovies = () => {
     }
     if (error) return <Error />;
 
-    return movies.filter((item) => item.media_type !== 'person' && item.title !== undefined && item.poster_path !== null).map((item) => (
+    return movies.filter((item) => item.media_type !== 'person' && item.title !== undefined && !!item.poster_path).map((item) => (
       <Card
         key={item.id}
         name={item.title}
