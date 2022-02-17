@@ -11,6 +11,7 @@ const PopularMovies = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    console.log(movies);
     dispatch(fetchPopularMovie());
   }, []);
 
@@ -24,6 +25,8 @@ const PopularMovies = () => {
     }
     if (error) return <Error />;
 
+    console.log(movies);
+    console.log('MOVIES AQUI');
     return movies.filter((item) => item.media_type !== 'person' && item.media_type !== 'tv' && item.title !== undefined && item.poster_path !== null).map((item) => (
       <Card
         key={item.id}

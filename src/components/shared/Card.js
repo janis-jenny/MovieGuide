@@ -40,8 +40,8 @@ Card.defaultProps = {
   img: '',
   loading: false,
   date: '',
-  popularity: '',
-  id: '',
+  popularity: 0,
+  id: 0,
 };
 
 Card.propTypes = {

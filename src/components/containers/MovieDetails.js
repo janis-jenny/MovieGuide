@@ -1,4 +1,6 @@
 /* eslint-disable */
+/* eslint-disable react/prop-types */
+
 import React, { useEffect } from 'react';
 import { Box, Grid, GridItem } from '@chakra-ui/react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -12,16 +14,16 @@ const MovieDetails = () => {
   const { movieId } = useParams();
   const { movies, error, loading } = useSelector((state) => state.allMoviesTVs);
   const dispatch = useDispatch();
-
+// pasar use selector al card details
+// el state global es llamado con el use selector vacio en el padre component 
+// y el details lo recibe asi luego el parent actualiza el state con use effect y vuelve a renderizar el details
   useEffect(() => {
+    console.log(movies);
+    console.log("AQUI");
     dispatch(fetchDetailsMovie(movieId));
   }, []);
 
-  // console.log(movies)
-  console.log(movies);
-  console.log('here!!!!');
-
-/*   function timeConvert(num) {
+  /* function timeConvert(num) {
     const hours = Math.floor(num / 60);
     const minutes = num % 60;
     return `${hours}:${minutes}`;
@@ -40,13 +42,13 @@ const MovieDetails = () => {
     return (
       <CardDetails
         id={movies.id}
-        bgimg={`https://www.themoviedb.org/t/p/w220_and_h330_face/${movies.backdrop_path}`}
+        // bgimg={`https://www.themoviedb.org/t/p/w220_and_h330_face/${movies.backdrop_path}`}
         name={movies.original_title}
         img={`https://www.themoviedb.org/t/p/w220_and_h330_face/${movies.poster_path}`}
         loading={loading}
         date={movies.release_date}
         popularity={movies.vote_average}
-        // genres={movies.genres.map((genre) => <span key={genre.name}>{genre.name}</span>).reduce((prev, curr) => [prev, ', ', curr])}
+        genres={movies.genres}
         time={movies.runtime}
         tagline={movies.tagline}
         overview={movies.overview}

@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+
 import PropTypes from 'prop-types';
 import {
   Grid, Box, Image, ScaleFade, Text,
@@ -8,7 +10,7 @@ import list from '../../images/list.png';
 import tag from '../../images/tag.png';
 
 const CardDetails = ({
-  id, name, img, loading, date, popularity,
+  id, name, img, loading, date, popularity, genres,
   time, tagline, overview, status, language, budget, revenue,
 }) => (
   <ScaleFade
@@ -33,12 +35,14 @@ const CardDetails = ({
             </Text>
           </Box>
           <Box display="flex" alignItems="center">
+            {console.log('CARD DETAILS')}
             <Text textAlign="center" fontSize="lg" fontWeight="normal" px="35">
               {date}
             </Text>
-            {/* <Text textAlign="center" fontSize="lg" fontWeight="normal" px="35">
-              {genres}
-            </Text> */}
+            <Text textAlign="center" fontSize="lg" fontWeight="normal" px="35">
+              {/* {genres.map((genre) => <span key={genre.name}>{genre.name}</span>)} */}
+              {genres.map((item) => item.name)}
+            </Text>
             <Text textAlign="center" fontSize="lg" fontWeight="normal" px="35">
               {time}
             </Text>
@@ -118,21 +122,21 @@ const CardDetails = ({
 );
 
 CardDetails.defaultProps = {
-  id: '',
+  id: 0,
   name: '',
   img: '',
   // bgimg: '',
   loading: false,
   date: '',
-  popularity: '',
-  // genres: '',
-  time: '',
+  popularity: 0,
+  genres: [],
+  time: 0,
   tagline: '',
   overview: '',
   status: '',
   language: '',
-  budget: '',
-  revenue: '',
+  budget: 0,
+  revenue: 0,
 };
 
 CardDetails.propTypes = {
@@ -141,10 +145,10 @@ CardDetails.propTypes = {
   img: PropTypes.string,
   loading: PropTypes.bool,
   date: PropTypes.string,
-  popularity: PropTypes.string,
+  popularity: PropTypes.number,
   // bgimg: PropTypes.string,
-  // genres: PropTypes.arrayOf(PropTypes.objectOf),
-  time: PropTypes.string,
+  genres: PropTypes.arrayOf(PropTypes.object),
+  time: PropTypes.number,
   tagline: PropTypes.string,
   overview: PropTypes.string,
   status: PropTypes.string,
