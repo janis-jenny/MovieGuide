@@ -11,7 +11,7 @@ const PopularMovies = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log(movies);
+    // console.log(movies);
     dispatch(fetchPopularMovie());
   }, []);
 
@@ -27,16 +27,17 @@ const PopularMovies = () => {
 
     console.log(movies);
     console.log('MOVIES AQUI');
-    return movies.filter((item) => item.media_type !== 'person' && item.media_type !== 'tv' && item.title !== undefined && item.poster_path !== null).map((item) => (
-      <Card
-        key={item.id}
-        name={item.title}
-        img={`https://www.themoviedb.org/t/p/w220_and_h330_face/${item.poster_path}`}
-        loading={loading}
-        date={item.release_date}
-        popularity={item.vote_average}
-        id={item.id}
-      />
+    return movies.filter((item) => item.media_type !== 'person' && item.media_type !== 'tv' && item.title !== undefined
+      && item.poster_path !== null).map((item) => (
+        <Card
+          key={item.id}
+          name={item.title}
+          img={`https://www.themoviedb.org/t/p/w220_and_h330_face/${item.poster_path}`}
+          loading={loading}
+          date={item.release_date}
+          popularity={item.vote_average}
+          id={item.id}
+        />
     ));
   };
 

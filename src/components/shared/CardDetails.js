@@ -40,8 +40,7 @@ const CardDetails = ({
               {date}
             </Text>
             <Text textAlign="center" fontSize="lg" fontWeight="normal" px="35">
-              {/* {genres.map((genre) => <span key={genre.name}>{genre.name}</span>)} */}
-              {genres.map((item) => item.name)}
+              {genres.map((item) => item.name).reduce((prev, curr) => [prev, ', ', curr])}
             </Text>
             <Text textAlign="center" fontSize="lg" fontWeight="normal" px="35">
               {time}

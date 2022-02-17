@@ -3,7 +3,6 @@ import {
   Box, Image, ScaleFade, Text,
 } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
-// import spinner from '../../images/spinner.png';
 
 const Card = ({
   name, img, loading, date, popularity, id,
@@ -14,7 +13,6 @@ const Card = ({
         <Image src={img} alt="poster" w="100%" />
       </Box>
       <Box textAlign="center">
-        {/* <Image src={spinner} alt="spinner" w="100%" position="absolute" /> */}
         <Text textAlign="center" fontSize="lg" fontWeight="bold" className="py-1">
           {`${popularity * 10}%`}
         </Text>
