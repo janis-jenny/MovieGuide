@@ -46,12 +46,12 @@ const MovieDetails = () => {
         loading={loading}
         date={movies.release_date}
         popularity={movies.vote_average}
-        genres={movies.genres.map((t) => <span>{t.name}</span>).reduce((prev, curr) => [prev, ', ', curr])}
-        time={movies.time}
+        // genres={movies.genres.map((genre) => <span key={genre.name}>{genre.name}</span>).reduce((prev, curr) => [prev, ', ', curr])}
+        time={movies.runtime}
         tagline={movies.tagline}
         overview={movies.overview}
         status={movies.status}
-        language={movies.original_language.toUpperCase()}
+        language={movies.original_language}
         budget={movies.budget}
         revenue={movies.revenue}
       />
@@ -63,6 +63,3 @@ const MovieDetails = () => {
 };
 
 export default MovieDetails;
-
-
-

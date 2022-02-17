@@ -48,9 +48,9 @@ Card.propTypes = {
   name: PropTypes.string,
   img: PropTypes.string,
   loading: PropTypes.bool,
-  date: PropTypes.number,
+  date: PropTypes.string,
   popularity: PropTypes.number,
-  id: PropTypes.string,
+  id: PropTypes.number,
 };
 
 export default Card;

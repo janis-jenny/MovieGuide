@@ -8,7 +8,7 @@ import list from '../../images/list.png';
 import tag from '../../images/tag.png';
 
 const CardDetails = ({
-  id, name, img, loading, date, popularity, genres,
+  id, name, img, loading, date, popularity,
   time, tagline, overview, status, language, budget, revenue,
 }) => (
   <ScaleFade
@@ -36,9 +36,9 @@ const CardDetails = ({
             <Text textAlign="center" fontSize="lg" fontWeight="normal" px="35">
               {date}
             </Text>
-            <Text textAlign="center" fontSize="lg" fontWeight="normal" px="35">
+            {/* <Text textAlign="center" fontSize="lg" fontWeight="normal" px="35">
               {genres}
-            </Text>
+            </Text> */}
             <Text textAlign="center" fontSize="lg" fontWeight="normal" px="35">
               {time}
             </Text>
@@ -91,7 +91,7 @@ const CardDetails = ({
                 Language
               </Text>
               <Text textAlign="center" fontSize="lg" fontWeight="normal">
-                {language}
+                {language.toUpperCase()}
               </Text>
             </Box>
             <Box px="12">
@@ -125,7 +125,7 @@ CardDetails.defaultProps = {
   loading: false,
   date: '',
   popularity: '',
-  genres: '',
+  // genres: '',
   time: '',
   tagline: '',
   overview: '',
@@ -140,11 +140,11 @@ CardDetails.propTypes = {
   name: PropTypes.string,
   img: PropTypes.string,
   loading: PropTypes.bool,
-  date: PropTypes.number,
-  popularity: PropTypes.number,
+  date: PropTypes.string,
+  popularity: PropTypes.string,
   // bgimg: PropTypes.string,
-  genres: PropTypes.arrayOf(PropTypes.string),
-  time: PropTypes.number,
+  // genres: PropTypes.arrayOf(PropTypes.objectOf),
+  time: PropTypes.string,
   tagline: PropTypes.string,
   overview: PropTypes.string,
   status: PropTypes.string,
