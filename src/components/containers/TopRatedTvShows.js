@@ -1,5 +1,5 @@
 import { Box, Grid, GridItem } from '@chakra-ui/react';
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchTopRatedShows } from '../../redux/actions/actionCreators';
 import Loader from '../shared/Loader';
@@ -14,29 +14,31 @@ const TopRatedShows = () => {
     dispatch(fetchTopRatedShows());
   }, []);
 
-  const renderTvShows = () => {
-    if (loading) {
-      return (
-        <GridItem colSpan={5} className="my-5">
-          <Loader />
-        </GridItem>
-      );
-    }
-
-    if (error) return <Error />;
-
-    return movies.filter((item) => !!item.poster_path).map((item) => (
-      <Card
-        key={item.id}
-        name={item.name}
-        img={`https://www.themoviedb.org/t/p/w220_and_h330_face/${item.poster_path}`}
-        loading={loading}
-        date={item.first_air_date}
-        popularity={item.vote_average}
-        id={item.id}
-      />
-    ));
-  };
+  const renderTvShows = useCallback(
+    () => {
+      if (loading) {
+        return (
+          <GridItem colSpan={5} className="my-5">
+            <Loader />
+          </GridItem>
+        );
+      }
+  
+      if (error) return <Error />;
+  
+      return movies.filter((item) => !!item.poster_path).map((item) => (
+        <Card
+          key={item.id}
+          name={item.name}
+          img={`https://www.themoviedb.org/t/p/w220_and_h330_face/${item.poster_path}`}
+          loading={loading}
+          date={item.first_air_date}
+          popularity={item.vote_average}
+          id={item.id}
+        />
+      ));
+    },
+  );
 
   return (
     <Box as="div" w="100%" bg="gray.200" p={5} minH="30vh" className="p-5">

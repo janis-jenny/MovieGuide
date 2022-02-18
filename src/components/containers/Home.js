@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { GridItem } from '@chakra-ui/react';
 import { useSelector } from 'react-redux';
 import SearchField from '../shared/Search';
@@ -8,17 +8,19 @@ import Error from '../shared/Error';
 const Home = () => {
   const { error, loading } = useSelector((state) => state.allMoviesTVs);
 
-  const renderList = () => {
-    if (loading) {
-      return (
-        <GridItem colSpan={5} className="my-5">
-          <Loader />
-        </GridItem>
-      );
-    }
-    if (error) return <Error />;
-    return null;
-  };
+  const renderList = useCallback(
+    () => {
+      if (loading) {
+        return (
+          <GridItem colSpan={5} className="my-5">
+            <Loader />
+          </GridItem>
+        );
+      }
+      if (error) return <Error />;
+      return null;
+    },
+  );
 
   return (
     <div>
