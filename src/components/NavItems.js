@@ -40,3 +40,4 @@ export const dropdownTVItems = [
     cName: 'dropdown-item show',
   },
 ];
+// with the dot before slash I'm appending in the current url the dot plus the path of each one

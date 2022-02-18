@@ -1,22 +1,19 @@
 /* eslint-disable */
-/* eslint-disable react/prop-types */
-
-import React, { useEffect } from 'react';
-import { Box, Grid, GridItem } from '@chakra-ui/react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
+import { GridItem } from '@chakra-ui/react';
 import { useParams } from 'react-router-dom';
-import { fetchDetailsMovie } from '../../redux/actions/actionCreators';
+// import { fetchDetailsMovie } from '../../redux/actions/actionCreators';
 import Loader from '../shared/Loader';
 import Error from '../shared/Error';
 import CardDetails from '../shared/CardDetails';
 import { useQuery } from 'react-query';
 import { BASE_URL, API_KEY } from '../../Api';
 
-const MovieDetails = () => {
+const Details = () => {
   const { movieId } = useParams();
   //const { movies, error, loading } = useSelector((state) => state.allMoviesTVs);
  // const dispatch = useDispatch();
-// pasar use selector al card details
+
 // el state global es llamado con el use selector vacio en el padre component 
 // y el details lo recibe asi luego el parent actualiza el state con use effect y vuelve a renderizar el details
   console.log('RENDER')
@@ -64,7 +61,6 @@ const MovieDetails = () => {
         revenue={movies.revenue}
       />
       }
-     
       </>
     )
   };
@@ -72,4 +68,4 @@ const MovieDetails = () => {
   return renderDetails()
 };
 
-export default MovieDetails;
+export default Details;
