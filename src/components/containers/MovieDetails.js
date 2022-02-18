@@ -8,9 +8,11 @@ import Error from '../shared/Error';
 import CardDetails from '../shared/CardDetails';
 import { useQuery } from 'react-query';
 import { BASE_URL, API_KEY } from '../../Api';
+import useMovieDetails from '../hooks/useMovieDetails';
 
-const Details = () => {
+const MovieDetails = () => {
   const { movieId } = useParams();
+  const { data: movie, isLoading, isError} = useMovieDetails(movieId);
   //const { movies, error, loading } = useSelector((state) => state.allMoviesTVs);
  // const dispatch = useDispatch();
 
@@ -30,35 +32,30 @@ const Details = () => {
     return `${hours}:${minutes}`;
   }
  */
-  const { data: movies, isLoading, isError} = useQuery(["movie-detail", {movieId: movieId}], async () => {
-    const { data } = await BASE_URL.get(`/movie/${movieId}?api_key=${API_KEY}`);
-    return data;
-  }, { enabled: movieId!=undefined && movieId!=null}); // !!movieId
+
   
   const renderDetails = () => {
     if (isError) return <Error />;
 
     return (
       <>{
-        isLoading? <GridItem colSpan={5} className="my-5">
-                    <Loader />
-                   </GridItem>
+        isLoading? <GridItem colSpan={5} className="my-5"><Loader /></GridItem>
         :  <CardDetails
-        id={movies.id}
+        id={movie.id}
         // bgimg={`https://www.themoviedb.org/t/p/w220_and_h330_face/${movies.backdrop_path}`}
-        name={movies.original_title}
-        img={`https://www.themoviedb.org/t/p/w220_and_h330_face/${movies.poster_path}`}
+        name={movie.original_title}
+        img={`https://www.themoviedb.org/t/p/w220_and_h330_face/${movie.poster_path}`}
         loading={isLoading}
-        date={movies.release_date}
-        popularity={movies.vote_average}
-        genres={movies.genres}
-        time={movies.runtime}
-        tagline={movies.tagline}
-        overview={movies.overview}
-        status={movies.status}
-        language={movies.original_language}
-        budget={movies.budget}
-        revenue={movies.revenue}
+        date={movie.release_date}
+        popularity={movie.vote_average}
+        genres={movie.genres}
+        time={movie.runtime}
+        tagline={movie.tagline}
+        overview={movie.overview}
+        status={movie.status}
+        language={movie.original_language}
+        budget={movie.budget}
+        revenue={movie.revenue}
       />
       }
       </>
@@ -68,4 +65,4 @@ const Details = () => {
   return renderDetails()
 };
 
-export default Details;
+export default MovieDetails;
