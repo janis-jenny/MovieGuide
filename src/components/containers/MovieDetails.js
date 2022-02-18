@@ -33,13 +33,13 @@ const MovieDetails = () => {
     return `${hours}:${minutes}`;
   }
  */
-  const { data: movies, isLoading, isError, error} = useQuery(["movie-detail",{movieId: movieId}], async () => {
+  const { data: movies, isLoading, isError, error} = useQuery(["movie-detail", {movieId: movieId}], async () => {
     const { data } = await BASE_URL.get(`/movie/${movieId}?api_key=${API_KEY}`);
     return data;
   }, { enabled: movieId!=undefined && movieId!=null}); // !!movieId
   
   const renderDetails = () => {
-    if (error) return <Error />;
+    if (isError) return <Error />;
 
     return (
       <>{

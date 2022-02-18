@@ -15,13 +15,13 @@ export const dropdownItems = [
   {
     id: 1,
     title: 'Popular',
-    path: './popular',
+    path: '/popular',
     cName: 'dropdown-item show',
   },
   {
     id: 2,
     title: 'Upcoming',
-    path: './upcoming',
+    path: '/upcoming',
     cName: 'dropdown-item show',
   },
 ];
@@ -30,13 +30,13 @@ export const dropdownTVItems = [
   {
     id: 1,
     title: 'Popular',
-    path: './popularTV',
+    path: '/popularTV',
     cName: 'dropdown-item show',
   },
   {
     id: 2,
     title: 'Top Rated',
-    path: './top_rated',
+    path: '/top_rated',
     cName: 'dropdown-item show',
   },
 ];
