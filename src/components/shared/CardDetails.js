@@ -35,7 +35,6 @@ const CardDetails = ({
             </Text>
           </Box>
           <Box display="flex" alignItems="center">
-            {console.log('CARD DETAILS')}
             <Text textAlign="center" fontSize="lg" fontWeight="normal" px="35">
               {date}
             </Text>

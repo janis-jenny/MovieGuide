@@ -10,13 +10,7 @@ const Home = () => {
 
   const renderList = useCallback(
     () => {
-      if (loading) {
-        return (
-          <GridItem colSpan={5} className="my-5">
-            <Loader />
-          </GridItem>
-        );
-      }
+      if (loading) return <GridItem colSpan={5} className="my-5"><Loader /></GridItem>;
       if (error) return <Error />;
       return null;
     },

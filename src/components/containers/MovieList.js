@@ -11,15 +11,9 @@ const MovieList = () => {
 
   const renderMovies = useCallback(
     () => {
-      if (loading) {
-        return (
-          <GridItem colSpan={5} className="my-5">
-            <Loader />
-          </GridItem>
-        );
-      }
+      if (loading) return <GridItem colSpan={5} className="my-5"><Loader /></GridItem>;
       if (error) return <Error />;
-  
+
       return movies.filter((item) => item.media_type !== 'person' && item.title !== undefined && !!item.poster_path).map((item) => (
         <Link to={`/movie/${item.id}`} id={item.id} className="row d-flex justify-content-center text-decoration-none text-black mx-0" key={item.id}>
           <div className="col-2 border rounded m-0 p-0">
@@ -35,7 +29,6 @@ const MovieList = () => {
         </Link>
       ));
     },
-    
   );
 
   return (

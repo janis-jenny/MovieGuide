@@ -17,13 +17,7 @@ const PopularMovies = () => {
 
   const renderMovies = useCallback(
     () => {
-      if (loading) {
-        return (
-          <GridItem colSpan={5} className="my-5">
-            <Loader />
-          </GridItem>
-        );
-      }
+      if (loading) return <GridItem colSpan={5} className="my-5"><Loader /></GridItem>;
       if (error) return <Error />;
 
       return movies.filter((item) => item.media_type !== 'person' && item.media_type !== 'tv' && item.title !== undefined

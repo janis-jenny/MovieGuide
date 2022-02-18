@@ -17,15 +17,9 @@ const PopularTvShows = () => {
 
   const renderTvShows = useCallback(
     () => {
-      if (loading) {
-        return (
-          <GridItem colSpan={5} className="my-5">
-            <Loader />
-          </GridItem>
-        );
-      }
+      if (loading) return <GridItem colSpan={5} className="my-5"><Loader /></GridItem>;
       if (error) return <Error />;
-  
+
       return movies.filter((item) => !!item.poster_path).map((item) => (
         <Card
           key={item.id}
@@ -39,7 +33,7 @@ const PopularTvShows = () => {
       ));
     },
   );
-  
+
   return (
     <Box as="div" w="100%" bg="gray.200" p={5} minH="30vh" className="p-5">
       <Grid
