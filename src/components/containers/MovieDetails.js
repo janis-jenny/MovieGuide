@@ -2,12 +2,9 @@
 import React from 'react';
 import { GridItem } from '@chakra-ui/react';
 import { useParams } from 'react-router-dom';
-// import { fetchDetailsMovie } from '../../redux/actions/actionCreators';
 import Loader from '../shared/Loader';
 import Error from '../shared/Error';
 import CardDetails from '../shared/CardDetails';
-import { useQuery } from 'react-query';
-import { BASE_URL, API_KEY } from '../../Api';
 import useMovieDetails from '../hooks/useMovieDetails';
 
 const MovieDetails = () => {

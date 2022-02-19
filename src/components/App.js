@@ -6,6 +6,7 @@ import {
 // import { ReactQueryDevtools } from "react-query/devtools";
 import Header from './navbar/Header';
 import MovieDetails from './containers/MovieDetails';
+import TvDetails from './containers/TvDetails';
 import MovieList from './containers/MovieList';
 import Home from './containers/Home';
 import PopularMovies from './containers/PopularMovies';
@@ -28,6 +29,7 @@ const App = () => (
           <Route path="/toprated" exact component={TopRatedShows} />
           <Route path="/search" exact component={MovieList} />
           <Route path="/movie/:movieId" exact component={MovieDetails} />
+          <Route path="/tv/:tvId" exact component={TvDetails} />
         </Switch>
       </Router>
     </div>

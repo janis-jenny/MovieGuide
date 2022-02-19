@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-
 import PropTypes from 'prop-types';
 import {
   Grid, Box, Image, ScaleFade, Text,
@@ -39,7 +38,7 @@ const CardDetails = ({
               {date}
             </Text>
             <Text textAlign="center" fontSize="lg" fontWeight="normal" px="35">
-              {genres.map((item) => ` ${' - '} ${item.name}  `)}
+              {genres.map((item) => `  ${item.name}  `)}
             </Text>
             <Text textAlign="center" fontSize="lg" fontWeight="normal" px="35">
               {time}
