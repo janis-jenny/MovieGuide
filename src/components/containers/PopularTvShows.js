@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchPopularTvShows } from '../../redux/actions/actionCreators';
 import Loader from '../shared/Loader';
 import Error from '../shared/Error';
-import Card from '../shared/Card';
+import Card from '../shared/CardTv';
 
 const PopularTvShows = () => {
   const { movies, error, loading } = useSelector((state) => state.allMoviesTVs);

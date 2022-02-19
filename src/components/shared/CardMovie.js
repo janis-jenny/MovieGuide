@@ -4,7 +4,7 @@ import {
 } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 
-const Card = ({
+const CardMovie = ({
   name, img, loading, date, popularity, id,
 }) => (
   <ScaleFade initialScale={0.9} in={!loading} className="border rounded">
@@ -33,7 +33,7 @@ const Card = ({
   </ScaleFade>
 );
 
-Card.defaultProps = {
+CardMovie.defaultProps = {
   name: '',
   img: '',
   loading: false,
@@ -42,7 +42,7 @@ Card.defaultProps = {
   id: 0,
 };
 
-Card.propTypes = {
+CardMovie.propTypes = {
   name: PropTypes.string,
   img: PropTypes.string,
   loading: PropTypes.bool,
@@ -51,4 +51,4 @@ Card.propTypes = {
   id: PropTypes.number,
 };
 
-export default Card;
+export default CardMovie;
