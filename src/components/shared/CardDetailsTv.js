@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import PropTypes from 'prop-types';
 import {
   Grid, Box, Image, ScaleFade, Text,
@@ -9,8 +8,8 @@ import list from '../../images/list.png';
 import tag from '../../images/tag.png';
 
 const CardDetails = ({
-  id, name, img, loading, date, popularity, genres,
-  time, tagline, overview, status, language, budget, revenue,
+  id, name, img, loading, popularity, genres,
+  time, tagline, overview, status, firstDate, episodes, seasons,
 }) => (
   <ScaleFade
     initialScale={0.9}
@@ -35,13 +34,7 @@ const CardDetails = ({
           </Box>
           <Box display="flex" alignItems="center">
             <Text textAlign="center" fontSize="lg" fontWeight="normal" px="35">
-              {date}
-            </Text>
-            <Text textAlign="center" fontSize="lg" fontWeight="normal" px="35">
               {genres.map((item) => `  ${item.name}  `)}
-            </Text>
-            <Text textAlign="center" fontSize="lg" fontWeight="normal" px="35">
-              {time}
             </Text>
           </Box>
           <Box display="flex" alignItems="center">
@@ -89,26 +82,34 @@ const CardDetails = ({
             </Box>
             <Box px="12">
               <Text textAlign="center" fontSize="lg" fontWeight="bold">
-                Language
+                Nª Episodes
               </Text>
               <Text textAlign="center" fontSize="lg" fontWeight="normal">
-                {language.toUpperCase()}
+                {episodes}
               </Text>
             </Box>
             <Box px="12">
               <Text textAlign="center" fontSize="lg" fontWeight="bold">
-                Budget
+                Nª Seasons
               </Text>
               <Text textAlign="center" fontSize="lg" fontWeight="normal">
-                {budget}
+                {seasons}
               </Text>
             </Box>
             <Box px="12">
               <Text textAlign="center" fontSize="lg" fontWeight="bold">
-                Revenue
+                First air date
               </Text>
               <Text textAlign="center" fontSize="lg" fontWeight="normal">
-                {revenue}
+                {firstDate}
+              </Text>
+            </Box>
+            <Box px="12">
+              <Text textAlign="center" fontSize="lg" fontWeight="bold">
+                Time
+              </Text>
+              <Text textAlign="center" fontSize="lg" fontWeight="normal">
+                {time}
               </Text>
             </Box>
           </Box>
@@ -124,16 +125,15 @@ CardDetails.defaultProps = {
   img: '',
   // bgimg: '',
   loading: false,
-  date: '',
+  firstDate: '',
   popularity: 0,
   genres: [],
   time: 0,
   tagline: '',
   overview: '',
   status: '',
-  language: '',
-  budget: 0,
-  revenue: 0,
+  episodes: 0,
+  seasons: 0,
 };
 
 CardDetails.propTypes = {
@@ -141,7 +141,7 @@ CardDetails.propTypes = {
   name: PropTypes.string,
   img: PropTypes.string,
   loading: PropTypes.bool,
-  date: PropTypes.string,
+  firstDate: PropTypes.string,
   popularity: PropTypes.number,
   // bgimg: PropTypes.string,
   genres: PropTypes.arrayOf(PropTypes.object),
@@ -149,9 +149,8 @@ CardDetails.propTypes = {
   tagline: PropTypes.string,
   overview: PropTypes.string,
   status: PropTypes.string,
-  language: PropTypes.string,
-  budget: PropTypes.number,
-  revenue: PropTypes.number,
+  episodes: PropTypes.number,
+  seasons: PropTypes.number,
 };
 
 export default CardDetails;

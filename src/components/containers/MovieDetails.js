@@ -4,7 +4,7 @@ import { GridItem } from '@chakra-ui/react';
 import { useParams } from 'react-router-dom';
 import Loader from '../shared/Loader';
 import Error from '../shared/Error';
-import CardDetails from '../shared/CardDetails';
+import CardDetails from '../shared/CardDetailsMovie';
 import useMovieDetails from '../hooks/useMovieDetails';
 
 const MovieDetails = () => {
