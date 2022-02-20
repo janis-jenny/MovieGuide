@@ -53,14 +53,4 @@ export const fetchMovie = (searchInput) => async (dispatch) => {
   }
 };
 
-export const fetchDetailsMovie = (movieId) => async (dispatch) => {
-  try {
-    dispatch(action.SearchRequest());
-    const response = await BASE_URL.get(`/movie/${movieId}?api_key=${API_KEY}`);
-    dispatch(action.SearchSuccess(response.data));
-  } catch (error) {
-    dispatch(action.SearchError(error));
-  }
-};
-
 export default fetchPopularMovie;
