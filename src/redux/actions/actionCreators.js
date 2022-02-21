@@ -23,16 +23,6 @@ export const fetchTopRatedShows = () => async (dispatch) => {
   }
 };
 
-const fetchPopularMovie = () => async (dispatch) => {
-  try {
-    dispatch(action.SearchRequest());
-    const response = await BASE_URL.get(`/movie/popular?api_key=${API_KEY}&page=1`);
-    dispatch(action.SearchSuccess(response.data.results));
-  } catch (error) {
-    dispatch(action.SearchError(error));
-  }
-};
-
 export const fetchUpcomingMovie = () => async (dispatch) => {
   try {
     dispatch(action.SearchRequest());
@@ -52,5 +42,3 @@ export const fetchMovie = (searchInput) => async (dispatch) => {
     dispatch(action.SearchError(error));
   }
 };
-
-export default fetchPopularMovie;

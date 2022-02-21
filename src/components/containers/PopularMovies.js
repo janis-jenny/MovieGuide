@@ -1,7 +1,5 @@
 import { Box, Grid, GridItem } from '@chakra-ui/react';
 import React, { useCallback, useState } from 'react';
-/* import { useDispatch, useSelector } from 'react-redux';
-import fetchPopularMovie from '../../redux/actions/actionCreators'; */
 import usePopular from '../hooks/usePopularMovies';
 import Loader from '../shared/Loader';
 import Error from '../shared/Error';
