@@ -56,6 +56,7 @@ const PopularMovies = () => {
         >
           Button1
         </button>
+        <span>{pageNumber}</span>
         <button
           onClick={() => setPageNumber((page) => page + 1)}
           disabled={pageNumber === 5}
