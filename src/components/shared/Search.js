@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom'; /// ok for useQuery?
 import { fetchMovie } from '../../redux/actions/actionCreators';
 
 const SearchField = () => {

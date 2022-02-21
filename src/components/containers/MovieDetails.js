@@ -11,26 +11,24 @@ const MovieDetails = () => {
   const { movieId } = useParams();
   const { data: movie, isLoading, isError} = useMovieDetails(movieId);
   //const { movies, error, loading } = useSelector((state) => state.allMoviesTVs);
- // const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-// el state global es llamado con el use selector vacio en el padre component 
-// y el details lo recibe asi luego el parent actualiza el state con use effect y vuelve a renderizar el details
+  // el state global es llamado con el use selector vacio en el padre component 
+  // y el details lo recibe asi luego el parent actualiza el state con use effect y vuelve a renderizar el details
   console.log('RENDER')
- /* useEffect(() => {
+  /* useEffect(() => {
     if(!movieId) return
     console.log(movies);
     console.log("AQUI");
     dispatch(fetchDetailsMovie(movieId)); /// it is neccesary to clean up use effect here?
   }, [movieId]);
-*/
+  */
   /* function timeConvert(num) {
     const hours = Math.floor(num / 60);
     const minutes = num % 60;
     return `${hours}:${minutes}`;
   }
- */
-
-  
+  */
   const renderDetails = () => {
     if (isError) return <Error />;
 
