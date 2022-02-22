@@ -4,6 +4,7 @@ import useUpcoming from '../hooks/useUpcomingMovies';
 import Loader from '../shared/Loader';
 import Error from '../shared/Error';
 import Card from '../shared/CardMovie';
+import Pagination from '../shared/Pagination';
 
 const UpcomingMovies = () => {
   const [pageNumber, setPageNumber] = useState(1);
@@ -39,27 +40,11 @@ const UpcomingMovies = () => {
           {renderMovies()}
         </Grid>
       </Box>
-      <div>
-        <button
-          onClick={() => setPageNumber((page) => Math.max(page - 1, 1))}
-          disabled={pageNumber === 1}
-          type="button"
-        >
-          Button1
-        </button>
-        <span>
-          {pageNumber}
-        </span>
-        <button
-          onClick={() => setPageNumber(
-            (page) => (!isPreviousData ? page + 1 : page),
-          )}
-          disabled={pageNumber === 5}
-          type="button"
-        >
-          Button2
-        </button>
-      </div>
+      <Pagination
+        setPageNumber={setPageNumber}
+        pageNumber={pageNumber}
+        latestData={isPreviousData}
+      />
     </>
   );
 };

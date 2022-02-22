@@ -10,11 +10,13 @@ const useStyles = makeStyles(() => ({
     position: 'fixed',
     bottom: 0,
     zIndex: 200,
-    backgroundColor: 'yellow',
+    backgroundColor: '#3e3f3a',
     padding: '10px 80px',
-
+    display: 'flex',
+    justifyContent: 'center',
     color: 'white',
     width: '100%',
+    height: '50px',
   },
   container: {
     display: 'flex',
@@ -33,18 +35,11 @@ const Pagination = ({ setPageNumber, pageNumber, latestData }) => {
     }; */
   return (
     <div className={classes.container}>
-      <div className={classes.root}>
-        {/* <Pagination
-            onChange={e => handleChange(e.target.textContent)}
-            style={{
-              display: "flex",
-              justifyContent: "center",
-            }}
-            variant="outlined"
-            count={pageNumber}
-            /> */}
+      <div
+        className={classes.root}
+      >
         <IconButton
-          color="primary"
+          color="grey"
           onClick={() => setPageNumber(
             (page) => Math.max(page - 1, 1),
           )}
@@ -53,7 +48,7 @@ const Pagination = ({ setPageNumber, pageNumber, latestData }) => {
           <ArrowLeftIcon fontSize="large" />
         </IconButton>
         <IconButton
-          color="primary"
+          color="grey"
           onClick={() => setPageNumber(
             (page) => (!latestData ? page + 1 : page),
           )}
