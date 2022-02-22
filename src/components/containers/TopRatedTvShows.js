@@ -4,6 +4,7 @@ import useTopRatedTv from '../hooks/useTopRatedTvShows';
 import Loader from '../shared/Loader';
 import Error from '../shared/Error';
 import Card from '../shared/CardTv';
+import Pagination from '../shared/Pagination';
 
 const TopRatedShows = () => {
   const [pageNumber, setPageNumber] = useState(1);
@@ -40,27 +41,11 @@ const TopRatedShows = () => {
           {renderTvShows()}
         </Grid>
       </Box>
-      <div>
-        <button
-          onClick={() => setPageNumber((page) => Math.max(page - 1, 1))}
-          disabled={pageNumber === 1}
-          type="button"
-        >
-          Button1
-        </button>
-        <span>
-          {pageNumber}
-        </span>
-        <button
-          onClick={() => setPageNumber(
-            (page) => (!isPreviousData ? page + 1 : page),
-          )}
-          disabled={pageNumber === 5}
-          type="button"
-        >
-          Button2
-        </button>
-      </div>
+      <Pagination
+        setPageNumber={setPageNumber}
+        pageNumber={pageNumber}
+        latestData={isPreviousData}
+      />
     </>
   );
 };
