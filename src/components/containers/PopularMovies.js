@@ -4,6 +4,7 @@ import usePopular from '../hooks/usePopularMovies';
 import Loader from '../shared/Loader';
 import Error from '../shared/Error';
 import Card from '../shared/CardMovie';
+import Pagination from '../shared/Pagination';
 
 const PopularMovies = () => {
 /*   const { movies, error, loading } = useSelector((state) => state.allMoviesTVs);
@@ -49,7 +50,7 @@ const PopularMovies = () => {
           {renderMovies()}
         </Grid>
       </Box>
-      <div>
+      {/* <div>
         <button
           onClick={() => setPageNumber((page) => Math.max(page - 1, 1))}
           disabled={pageNumber === 1}
@@ -69,7 +70,12 @@ const PopularMovies = () => {
         >
           Button2
         </button>
-      </div>
+      </div> */}
+      <Pagination
+        setPageNumber={setPageNumber}
+        pageNumber={pageNumber}
+        latestData={isPreviousData}
+      />
     </>
   );
 };
