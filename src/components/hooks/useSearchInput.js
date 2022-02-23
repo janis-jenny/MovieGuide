@@ -1,6 +1,5 @@
 /* eslint-disable */
 import { useQuery } from 'react-query';
-import { useHistory } from 'react-router-dom'; /// ok for useQuery?
 import { BASE_URL, API_KEY } from '../../Api';
 
 
@@ -8,7 +7,7 @@ const useSearch = (searchInput) => useQuery(
     ['search', { searchInput }], async () => {
         const { data } = await BASE_URL.get(`/search/multi?api_key=${API_KEY}&query=${searchInput}`);
         return data;
-    }, 
+    },
     {
         keepPreviousData: true, staleTime: 5000
         // to avoid the ui jumps in & out of the success of loading states, 

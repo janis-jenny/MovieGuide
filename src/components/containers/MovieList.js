@@ -1,4 +1,5 @@
-import { Box, Grid, GridItem } from '@chakra-ui/react';
+/* eslint-disable */
+/* import { Box, Grid, GridItem } from '@chakra-ui/react';
 import React, { useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -6,8 +7,8 @@ import SearchField from '../shared/Search';
 import Loader from '../shared/Loader';
 import Error from '../shared/Error';
 
-const MovieList = () => {
-  const { movies, error, loading } = useSelector((state) => state.allMoviesTVs);
+const MovieList = ({list}) => {
+  // const { movies, error, loading } = useSelector((state) => state.allMoviesTVs);
 
   const renderMovies = useCallback(
     () => {
@@ -45,3 +46,4 @@ const MovieList = () => {
 };
 
 export default MovieList;
+ */

@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+/* eslint-disable */
+/* import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom'; /// ok for useQuery?
 import { fetchMovie } from '../../redux/actions/actionCreators';
+//import useSearch from '../hooks/useSearchInput';
 
 const SearchField = () => {
   const [searchText, setSearchText] = useState('');
@@ -28,3 +30,4 @@ const SearchField = () => {
 };
 
 export default SearchField;
+ */
