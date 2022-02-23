@@ -1,5 +1,4 @@
 import React, { useCallback, useState } from 'react';
-// import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Box, Grid, GridItem } from '@chakra-ui/react';
 import useSearch from '../hooks/useSearchInput';
@@ -7,10 +6,8 @@ import Loader from '../shared/Loader';
 import Error from '../shared/Error';
 
 const Home = () => {
-  // const { error, loading } = useSelector((state) => state.allMoviesTVs);
   const [searchText, setSearchText] = useState('');
   const { data: movies, isLoading, isError } = useSearch(searchText);
-  // const history = useHistory();
 
   function searchHandler(e) {
     e.preventDefault();
@@ -36,18 +33,15 @@ const Home = () => {
           </ul>
         </Link>
       ));
-    },
-  );
+    }, [movies, isLoading, isError], // ->The first time the component is rendered, the useCallback hook will take the function that is passed as its argument and stores it memory
+    // so this hook use closure freezing what is inside, when render again it will check the array dependecies to updated the values already store in memory, this is closure in javascript
+  );  
 
   return (
     <>
       <div className="d-flex justify-content-center py-5">
         <form className="d-flex" onSubmit={searchHandler}>
           <input className="form-control mx-0" type="text" placeholder="Search" id="searchInput" value={searchText} onChange={(e) => setSearchText(e.target.value)} />
-
-          {/* <button className="btn btn-secondary py-3 mx-0" type="submit"
-           onClick={() => navigation('search')}>Search</button>
-        */}
         </form>
       </div>
       <Box width="60vw" mx="auto">
