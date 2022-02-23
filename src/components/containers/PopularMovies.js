@@ -7,18 +7,14 @@ import Card from '../shared/CardMovie';
 import Pagination from '../shared/Pagination';
 
 const PopularMovies = () => {
-/*   const { movies, error, loading } = useSelector((state) => state.allMoviesTVs);
-  const dispatch = useDispatch(); */
-
   const [pageNumber, setPageNumber] = useState(1);
   const {
     data: movies, isError, isLoading, isPreviousData,
   } = usePopular(pageNumber);
 
-  /* useEffect(() => {
-    // console.log(movies);
-    dispatch(fetchPopularMovie());
-  }, []); */
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, [pageNumber]);
 
   const renderMovies = useCallback(
     () => {

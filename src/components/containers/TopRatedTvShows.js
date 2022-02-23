@@ -12,6 +12,10 @@ const TopRatedShows = () => {
     data: movies, isError, isLoading, isPreviousData,
   } = useTopRatedTv(pageNumber);
 
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, [pageNumber]);
+  
   const renderTvShows = useCallback(
     () => {
       if (isLoading) return <GridItem colSpan={5} className="my-5"><Loader /></GridItem>;
