@@ -9,7 +9,7 @@ const useSearch = (searchInput) => useQuery(
         return data;
     },
     {
-        keepPreviousData: true, staleTime: 5000
+        keepPreviousData: true, staleTime: 5000, enabled:searchInput.trim() !== "" // -> enable the search when there is a text w no spaces and where is not empty
         // to avoid the ui jumps in & out of the success of loading states, 
         // cause each page is trigger like a new query //react query will mantain the data from the last fetch
         // while the new data is being requested even query key has changed
