@@ -1,10 +1,12 @@
 /* eslint-disable */
 import { useQuery } from 'react-query';
+import { useHistory } from 'react-router-dom'; /// ok for useQuery?
 import { BASE_URL, API_KEY } from '../../Api';
 
-const useUpcoming = (pageNumber) => useQuery(
-    ['upcoming-movies', { pageNumber }], async () => {
-        const { data } = await BASE_URL.get(`/movie/upcoming?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&page=${pageNumber}`);
+
+const useSearch = (searchInput) => useQuery(
+    ['search', { searchInput }], async () => {
+        const { data } = await BASE_URL.get(`/search/multi?api_key=${API_KEY}&query=${searchInput}`);
         return data;
     }, 
     {
@@ -16,4 +18,4 @@ const useUpcoming = (pageNumber) => useQuery(
     }
 );
 
-export default useUpcoming;
+export default useSearch;

@@ -4,7 +4,7 @@ import { BASE_URL, API_KEY } from '../../Api';
 
 const useTopRatedTv = (pageNumber) => useQuery(
     ['toprated-tvshows', { pageNumber }], async () => {
-        const { data } = await BASE_URL.get(`/tv/top_rated?api_key=${API_KEY}&page=${pageNumber}`);
+        const { data } = await BASE_URL.get(`/tv/top_rated?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&page=${pageNumber}`);
         return data;
     }, 
     {
