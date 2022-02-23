@@ -8,17 +8,20 @@ const SearchField = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
+  const navigation = (link) => {
+    history.push(`/${link}`);
+  };
+
   function searchHandler(e) {
     e.preventDefault();
     dispatch(fetchMovie(searchText.toLowerCase()));
-    history.push('/search');
   }
 
   return (
     <div className="d-flex justify-content-center py-5">
       <form className="d-flex" onSubmit={searchHandler}>
         <input className="form-control mx-0" type="text" placeholder="Search" id="searchInput" value={searchText} onChange={(e) => setSearchText(e.target.value)} />
-        <button className="btn btn-secondary py-3 mx-0" type="submit">Search</button>
+        <button className="btn btn-secondary py-3 mx-0" type="submit" onClick={() => navigation('search')}>Search</button>
       </form>
     </div>
   );
