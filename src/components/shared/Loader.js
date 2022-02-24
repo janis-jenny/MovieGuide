@@ -1,10 +1,16 @@
 import React from 'react';
-import { Center, Spinner } from '@chakra-ui/react';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const Loader = () => (
-  <Center>
-    <Spinner thickness="12px" speed="0.75s" emptyColor="gray.200" color="blue.500" size="xl" />
-  </Center>
+  <div
+    style={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+    }}
+  >
+    <CircularProgress color="inherit" thickness={5} />
+  </div>
 );
 
 export default Loader;

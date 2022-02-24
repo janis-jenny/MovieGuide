@@ -1,6 +1,9 @@
 import React, { useCallback, useState } from 'react';
 import { Box, Grid, GridItem } from '@chakra-ui/react';
-import { TextField, Container } from '@material-ui/core';
+import {
+  TextField, Container, IconButton, InputAdornment,
+} from '@material-ui/core';
+import SearchIcon from '@material-ui/icons/Search';
 import { useDebounce } from 'use-debounce';
 import useSearch from '../hooks/useSearchInput';
 import Loader from '../shared/Loader';
@@ -47,7 +50,7 @@ const Home = () => {
   return (
     <>
       <Container>
-        <form onSubmit={searchHandler} noValidate autoComplete="off">
+        <form variant="standard" onSubmit={searchHandler} noValidate autoComplete="off" style={{ display: 'flex', justifyContent: 'center' }}>
           <TextField
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
@@ -56,6 +59,15 @@ const Home = () => {
             fullwidth
             required
             style={{ marginTop: 45, marginBottom: 40 }}
+            InputProps={{
+              endAdornment: (
+                <InputAdornment>
+                  <IconButton style={{ marginBottom: '20px', marginLeft: '40px' }}>
+                    <SearchIcon />
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
           />
         </form>
       </Container>

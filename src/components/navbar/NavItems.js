@@ -6,7 +6,7 @@ export const navItems = [
   },
   {
     id: 2,
-    title: 'TV Show',
+    title: 'TV Series',
     cName: 'dropdown-toggle show text-white px-3',
   },
 ];
