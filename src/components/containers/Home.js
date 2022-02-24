@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import { Box, Grid, GridItem } from '@chakra-ui/react';
+import { TextField, Container } from '@material-ui/core';
 import { useDebounce } from 'use-debounce';
 import useSearch from '../hooks/useSearchInput';
 import Loader from '../shared/Loader';
@@ -45,11 +46,19 @@ const Home = () => {
 
   return (
     <>
-      <div className="d-flex justify-content-center py-5">
-        <form className="d-flex" onSubmit={searchHandler}>
-          <input className="form-control mx-0" type="text" placeholder="Search" id="searchInput" value={searchText} onChange={(e) => setSearchText(e.target.value)} />
+      <Container>
+        <form onSubmit={searchHandler} noValidate autoComplete="off">
+          <TextField
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+            label="Search"
+            variant="standard"
+            fullwidth
+            required
+            style={{ marginTop: 45, marginBottom: 40 }}
+          />
         </form>
-      </div>
+      </Container>
       <Box width="60vw" mx="auto">
         <Grid
           templateColumns=" 1fr"
