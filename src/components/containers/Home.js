@@ -1,13 +1,18 @@
 import React, { useCallback, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Box, Grid, GridItem } from '@chakra-ui/react';
+import { useDebounce } from 'use-debounce';
 import useSearch from '../hooks/useSearchInput';
 import Loader from '../shared/Loader';
 import Error from '../shared/Error';
 
 const Home = () => {
   const [searchText, setSearchText] = useState('');
-  const { data: movies, isLoading, isError } = useSearch(searchText);
+  const [value] = useDebounce(searchText, 500);
+  // helps to add a timer between key strokes events and avoids overload the memory
+  // by calling the api on every letter, to optimize the performance, when fetching data from input,
+  // it's gonna be in between a dynamic & static props to the function for fetching api
+  const { data: movies, isLoading, isError } = useSearch(value);
 
   function searchHandler(e) {
     e.preventDefault();
@@ -33,9 +38,13 @@ const Home = () => {
           </ul>
         </Link>
       ));
-    }, [movies, isLoading, isError], // ->The first time the component is rendered, the useCallback hook will take the function that is passed as its argument and stores it memory
-    // so this hook use closure freezing what is inside, when render again it will check the array dependecies to updated the values already store in memory, this is closure in javascript
-  );  
+    }, [movies, isLoading, isError],
+    // The first time the component is rendered, the useCallback hook will take the function
+    // that is passed as its argument and stores it memory
+    // so this hook use closure freezing what is inside, when render again
+    // it will check the array dependecies to updated the values already store in memory,
+    // this is closure in javascript
+  );
 
   return (
     <>

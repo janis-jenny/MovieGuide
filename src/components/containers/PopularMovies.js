@@ -1,5 +1,5 @@
 import { Box, Grid, GridItem } from '@chakra-ui/react';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useState, useEffect } from 'react';
 import usePopular from '../hooks/usePopularMovies';
 import Loader from '../shared/Loader';
 import Error from '../shared/Error';

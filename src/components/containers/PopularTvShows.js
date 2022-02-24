@@ -1,5 +1,5 @@
 import { Box, Grid, GridItem } from '@chakra-ui/react';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useState, useEffect } from 'react';
 import usePopularTv from '../hooks/usePopularTvShows';
 import Loader from '../shared/Loader';
 import Error from '../shared/Error';
@@ -15,7 +15,7 @@ const PopularTvShows = () => {
   useEffect(() => {
     window.scroll(0, 0);
   }, [pageNumber]);
-  
+
   const renderTvShows = useCallback(
     () => {
       if (isLoading) return <GridItem colSpan={5} className="my-5"><Loader /></GridItem>;

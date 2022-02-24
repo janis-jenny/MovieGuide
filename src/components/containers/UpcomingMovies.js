@@ -1,5 +1,5 @@
 import { Box, Grid, GridItem } from '@chakra-ui/react';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useState, useEffect } from 'react';
 import useUpcoming from '../hooks/useUpcomingMovies';
 import Loader from '../shared/Loader';
 import Error from '../shared/Error';
@@ -15,7 +15,7 @@ const UpcomingMovies = () => {
   useEffect(() => {
     window.scroll(0, 0);
   }, [pageNumber]);
-  
+
   const renderMovies = useCallback(() => {
     if (isLoading) return <GridItem colSpan={5} className="my-5"><Loader /></GridItem>;
     if (isError) return <Error />;
