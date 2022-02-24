@@ -28,11 +28,7 @@ const useStyles = makeStyles(() => ({
 
 const Pagination = ({ setPageNumber, pageNumber, latestData }) => {
   const classes = useStyles();
-  // handle change
-  /* const handleChange = page => {
-      setPage(page);
-      window.scroll(0, 0);
-    }; */
+
   return (
     <div className={classes.container}>
       <div
