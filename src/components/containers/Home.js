@@ -29,9 +29,9 @@ const Home = () => {
       if (isError) return <Error />;
 
       return (
-        <Grid item md={6}>
+        <Grid container direction="row" justify="center" alignItems="center">
           {movies?.results.filter(
-            (item) => item.media_type !== 'person' && item.title !== undefined && !!item.poster_path,
+            (item) => item.media_type !== 'person' && item.title !== undefined && !!item.poster_path && !!item.backdrop_path,
           ).map(
             (item) => (
               <Grid key={item} item md={6}>
