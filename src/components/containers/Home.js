@@ -28,17 +28,19 @@ const Home = () => {
       if (isLoading) return <GridItem colSpan={5} className="my-5"><Loader /></GridItem>;
       if (isError) return <Error />;
 
-      return movies?.results.filter((item) => item.media_type !== 'person' && item.title !== undefined
-        && !!item.poster_path).map((item) => (
-          <MovieList
-            id={item.id}
-            key={item.id}
-            poster={item.poster_path}
-            title={item.title}
-            release={item.release_date}
-            overview={item.overview}
-          />
-      ));
+      return (
+        <Grid item md={6}>
+          {movies?.results.filter(
+            (item) => item.media_type !== 'person' && item.title !== undefined && !!item.poster_path,
+          ).map(
+            (item) => (
+              <Grid key={item} item md={6}>
+                <MovieList movies={item} />
+              </Grid>
+            ),
+          )}
+        </Grid>
+      );
     }, [movies, isLoading, isError],
     // The first time the component is rendered, the useCallback hook will take the function
     // that is passed as its argument and stores it memory

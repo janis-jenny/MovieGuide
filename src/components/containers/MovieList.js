@@ -1,28 +1,41 @@
 /* eslint-disable */
-import { Box, Grid } from '@chakra-ui/react';
+import { Box, Text, Grid } from '@chakra-ui/react';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const MovieList = ({id, poster, title, release, overview}) => (
-  <Box width="60vw" mx="auto">
-    <Grid
-      templateColumns=" 1fr"
-      gap={10}
-    >
-      <Link to={`/movie/${id}`} id={id} className="row d-flex justify-content-center text-decoration-none text-black mx-0" key={id}>
-          <div className="col-2 border rounded m-0 p-0">
-            <img src={`https://www.themoviedb.org/t/p/w220_and_h330_face/${poster}`} alt="poster" />
-          </div>
-          <ul className="col-8 border rounded m-0 p-0 content">
-            <li>
-              <h4 className="p-2">{title}</h4>
-              <span className="p-2">{release}</span>
-              <p className="paragraph px-2 my-3">{overview}</p>
-            </li>
-          </ul>
-        </Link>
+const MovieList = ({movies}) => (
+
+    <Grid container direction="row" justify="center" alignItems="center">
+      <Link 
+        to={`/movie/${movies.id}`}
+        id={movies.id}
+        key={movies.id}
+        
+      >
+        <Grid item md={4}>
+          <img src={`https://www.themoviedb.org/t/p/w220_and_h330_face/${movies.poster_path}`} alt="poster" />
+        </Grid>
+        <Grid item md={8}>
+          <Box>
+            <Box textAlign="center" mt="25">
+              <Text textAlign="center" fontSize="lg" fontWeight="bolder">
+                {movies.title}
+              </Text>
+            </Box>
+            <Box textAlign="center" mt="25">
+              <Text textAlign="center" fontSize="lg" fontWeight="bolder">
+                {movies.release}
+              </Text>
+            </Box>
+            <Box textAlign="center" mt="25">
+              <Text textAlign="center" fontSize="lg" fontWeight="bolder">
+                {movies.overview}
+              </Text>
+            </Box>
+          </Box>
+        </Grid>
+      </Link>
     </Grid>
-  </Box>
 )
 
 export default MovieList;
