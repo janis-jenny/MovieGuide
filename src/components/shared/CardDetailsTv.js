@@ -6,6 +6,7 @@ import heart from '../../images/heart.png';
 import star from '../../images/star.png';
 import list from '../../images/list.png';
 import tag from '../../images/tag.png';
+import genresNames from '../../utils/genresNames';
 
 const CardDetails = ({
   id, name, img, loading, popularity, genres,
@@ -34,7 +35,7 @@ const CardDetails = ({
           </Box>
           <Box display="flex" alignItems="center">
             <Text textAlign="center" fontSize="lg" fontWeight="normal" px="35">
-              {genres.map((item) => `  ${item.name}  `)}
+              {genresNames(genres)}
             </Text>
           </Box>
           <Box display="flex" alignItems="center">
