@@ -5,7 +5,7 @@ import { BASE_URL, API_KEY } from '../../Api';
 
 const useSearch = (searchInput) => useQuery(
     ['search', { searchInput }], async () => {
-        const { data } = await BASE_URL.get(`/search/multi?api_key=${API_KEY}&query=${searchInput}`);
+        const { data } = await BASE_URL.get(`/search/multi?api_key=${API_KEY}&sort_by=release_date.desc&query=${searchInput}`);
         return data;
     },
     {

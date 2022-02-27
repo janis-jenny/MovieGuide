@@ -68,7 +68,7 @@ box-shadow: 0 0 20px -10px rgba(0, 0, 0, 0.5);
 
 .movie_card .info_section .movie_desc {
   padding: 12px 22px 8px 20px;
-  height: auto;
+  min-height: 230px;
 }
 
 .movie_card .info_section .movie_desc .text {
@@ -135,7 +135,7 @@ box-shadow: 0 0 20px -10px rgba(0, 0, 0, 0.5);
 
 @media screen and (max-width: 768px) {
     .movie_card {
-      width: 95%;
+      width: 98%;
       margin: 20px auto;
       min-height: 370px;
       height: auto;
@@ -168,8 +168,23 @@ box-shadow: 0 0 20px -10px rgba(0, 0, 0, 0.5);
     .movie_desc {
       width: 88%;
     }
+
     .info_section {
       background: linear-gradient(to top, #141413 50%, transparent 100%);
       display: inline-grid;
     }
+}
+
+@media screen and (min-width: 1440px) {
+    .movie_card {
+        width: 85%;
+      /*margin: 20px auto;
+        min-height: 370px;
+        height: auto; */
+    }
+
+    .blur_back {
+        width: 68%;
+        background-position: -100% 10% !important;
+      }
 }
