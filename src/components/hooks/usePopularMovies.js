@@ -4,7 +4,7 @@ import { BASE_URL, API_KEY } from '../../Api';
 
 const usePopular = (pageNumber) => useQuery(
     ['popular-movies', { pageNumber }], async () => {
-        const { data } = await BASE_URL.get(`/movie/popular?api_key=${API_KEY}&page=${pageNumber}`);
+        const { data } = await BASE_URL.get(`/movie/popular?api_key=${API_KEY}&sort_by=popularity.desc&page=${pageNumber}`);
         return data;
     }, 
     {

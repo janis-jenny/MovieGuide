@@ -25,7 +25,7 @@ const PopularTvShows = () => {
         <Card
           key={item.id}
           name={item.name}
-          img={`https://www.themoviedb.org/t/p/w220_and_h330_face/${item.poster_path}`}
+          img={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
           loading={isLoading}
           date={item.first_air_date}
           popularity={item.vote_average}
