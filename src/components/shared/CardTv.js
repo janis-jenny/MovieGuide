@@ -8,28 +8,28 @@ const CardTv = ({
   name, img, loading, date, popularity, id,
 }) => (
   <ScaleFade initialScale={0.9} in={!loading} className="border rounded">
-    <Box w="100%" position="relative" bg="#fff" boxShadow="xl">
-      <Box>
-        <Image src={img} alt="poster" w="100%" />
-      </Box>
-      <Box textAlign="center">
-        <Text textAlign="center" fontSize="lg" fontWeight="bold" className="py-1">
-          {`${popularity * 10}%`}
-        </Text>
-      </Box>
-      <Box textAlign="center">
-        <Text textAlign="center" fontSize="lg" fontWeight="bolder">
-          <Link to={`/tv/${id}`} id={id} className="text-black text-decoration-none px-1">
+    <Link to={`/tv/${id}`} id={id} className="text-black text-decoration-none px-1">
+      <Box w="100%" position="relative" bg="#fff" boxShadow="xl">
+        <Box>
+          <Image src={img} alt="poster" w="100%" />
+        </Box>
+        <Box textAlign="center">
+          <Text textAlign="center" fontSize="lg" fontWeight="bold" className="py-1">
+            {`${popularity * 10}%`}
+          </Text>
+        </Box>
+        <Box textAlign="center">
+          <Text textAlign="center" fontSize="lg" fontWeight="bolder">
             {name}
-          </Link>
-        </Text>
+          </Text>
+        </Box>
+        <Box>
+          <Text textAlign="center" fontSize="lg" fontWeight="normal">
+            {date}
+          </Text>
+        </Box>
       </Box>
-      <Box>
-        <Text textAlign="center" fontSize="lg" fontWeight="normal">
-          {date}
-        </Text>
-      </Box>
-    </Box>
+    </Link>
   </ScaleFade>
 );
 
