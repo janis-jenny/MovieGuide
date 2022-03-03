@@ -1,6 +1,6 @@
 /* eslint-disable */
 import { useQuery } from 'react-query';
-import { BASE_URL, API_KEY } from '../../Api';
+import { BASE_URL, API_KEY } from '../../utils/Api';
 
 const useMovieDetails = (movieId) => useQuery(
   ['movie-detail', { movieId }], async () => {
