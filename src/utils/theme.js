@@ -6,10 +6,10 @@ const theme = createTheme({
       main: '#3e3f3a',
     },
     secondary: {
-      main: '#de62828',
+      main: '#a99561',
     },
     common: {
-      drawer: '#A22032',
+      drawer: '#a99561',
     },
     type: 'dark',
   },

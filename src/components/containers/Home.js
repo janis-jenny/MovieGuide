@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import { Box, Grid, GridItem } from '@chakra-ui/react';
 import {
-  TextField, Container, IconButton, InputAdornment,
+  TextField, Container, IconButton, InputAdornment, makeStyles,
 } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import { useDebounce } from 'use-debounce';
@@ -10,7 +10,14 @@ import Loader from '../shared/Loader';
 import Error from '../shared/Error';
 import MovieList from './MovieList';
 
+const useStyles = makeStyles(() => ({
+  root: {
+    backgroundColor: '#030303',
+  },
+}));
+
 const Home = () => {
+  const classes = useStyles();
   const [searchText, setSearchText] = useState('');
   const [value] = useDebounce(searchText, 500);
   // helps to add a timer between key strokes events and avoids overload the memory
@@ -29,7 +36,7 @@ const Home = () => {
       if (isError) return <Error />;
 
       return (
-        <Grid container="true" direction="row" justify="center" alignItems="center">
+        <Grid container="true" direction="row" justify="center" alignItems="center" className={classes.root}>
           {movies?.results.filter(
             (item) => item.media_type !== 'person' && item.title !== undefined && !!item.poster_path && !!item.backdrop_path,
           ).map(
@@ -50,7 +57,7 @@ const Home = () => {
   );
 
   return (
-    <>
+    <div className={classes.root}>
       <Container>
         <form variant="standard" onSubmit={searchHandler} noValidate autoComplete="off" style={{ display: 'flex', justifyContent: 'center' }}>
           <TextField
@@ -81,7 +88,7 @@ const Home = () => {
           {renderList()}
         </Grid>
       </Box>
-    </>
+    </div>
   );
 };
 

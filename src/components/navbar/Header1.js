@@ -60,7 +60,7 @@ const NavbarComponet = () => {
     setAnchorEl(false);
   };
 
-  const LinkBtn = (props) => <Button color="inherit" component={Link} {...props} />;
+  // const LinkBtn = (props) => <Button color="inherit" component={Link} {...props} />;
 
   return (
     <>
@@ -71,10 +71,10 @@ const NavbarComponet = () => {
             className={classes.menuButton}
             color="inherit"
             aria-label="menu"
+            component={Link}
+            to="/"
           >
-            <LinkBtn to="/">
-              MovieGuide
-            </LinkBtn>
+            MovieGuide
           </IconButton>
 
           {/* <MenuIcon onClick={setOpenDrawer} className={classes.openDrawer} /> */}

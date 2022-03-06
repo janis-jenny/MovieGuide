@@ -35,7 +35,7 @@ const Pagination = ({ setPageNumber, pageNumber, latestData }) => {
         className={classes.root}
       >
         <IconButton
-          color="primary"
+          color="secondary"
           onClick={() => setPageNumber(
             (page) => Math.max(page - 1, 1),
           )}
@@ -44,7 +44,7 @@ const Pagination = ({ setPageNumber, pageNumber, latestData }) => {
           <ArrowLeftIcon fontSize="large" />
         </IconButton>
         <IconButton
-          color="primary"
+          color="secondary"
           onClick={() => setPageNumber(
             (page) => (!latestData ? page + 1 : page),
           )}
