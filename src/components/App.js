@@ -4,7 +4,7 @@ import {
   QueryClientProvider,
 } from 'react-query';
 // import { ReactQueryDevtools } from "react-query/devtools";
-import Header from './navbar/Header';
+import NavbarComponet from './navbar/Header1';
 import MovieDetails from './containers/MovieDetails';
 import TvDetails from './containers/TvDetails';
 // import MovieList from './containers/MovieList';
@@ -20,7 +20,7 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <div className="App">
       <Router>
-        <Header />
+        <NavbarComponet />
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/popular" exact component={PopularMovies} />

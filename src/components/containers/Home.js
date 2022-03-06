@@ -29,7 +29,7 @@ const Home = () => {
       if (isError) return <Error />;
 
       return (
-        <Grid container direction="row" justify="center" alignItems="center">
+        <Grid container="true" direction="row" justify="center" alignItems="center">
           {movies?.results.filter(
             (item) => item.media_type !== 'person' && item.title !== undefined && !!item.poster_path && !!item.backdrop_path,
           ).map(
@@ -58,12 +58,12 @@ const Home = () => {
             onChange={(e) => setSearchText(e.target.value)}
             label="Search"
             variant="standard"
-            fullwidth
+            fullwidth="true"
             required
             style={{ marginTop: 45, marginBottom: 40 }}
             InputProps={{
               endAdornment: (
-                <InputAdornment>
+                <InputAdornment position="start">
                   <IconButton style={{ marginBottom: '20px', marginLeft: '40px' }}>
                     <SearchIcon />
                   </IconButton>
