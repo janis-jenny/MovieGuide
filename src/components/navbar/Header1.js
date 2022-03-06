@@ -65,7 +65,7 @@ const NavbarComponet = () => {
   return (
     <>
       <AppBar position="static">
-        <Toolbar>
+        <Toolbar color="primary">
           <IconButton
             edge="start"
             className={classes.menuButton}
