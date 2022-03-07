@@ -42,11 +42,11 @@ const NavbarComponet = () => {
   // css
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = useState(null);
-  const [openDrawer, setOpenDrawer] = useState(true);
+  const [openDrawer, setOpenDrawer] = useState(false);
   const open = Boolean(anchorEl);
   // theme customisation
   const theme = useTheme();
-  // const isMatch = useMediaQuery(theme.breakpoints.down('sm'));
+  const isMatch = useMediaQuery(theme.breakpoints.down('sm'));
 
   const handleOpenMenu = (e) => {
     setAnchorEl(e.currentTarget);
@@ -59,8 +59,6 @@ const NavbarComponet = () => {
 
     setAnchorEl(false);
   };
-
-  // const LinkBtn = (props) => <Button color="inherit" component={Link} {...props} />;
 
   return (
     <>
@@ -75,32 +73,37 @@ const NavbarComponet = () => {
           >
             MovieGuide
           </IconButton>
-          <div>
-            <Button id="movies" aria-controls="movies" onClick={handleOpenMenu}>Movies</Button>
-            <Button id="series" arial-controls="series" onClick={handleOpenMenu}>Tv Series</Button>
-          </div>
-          <MenuIcon onClick={setOpenDrawer} className={classes.openDrawer}/>
+          {!isMatch && (
+            <div>
+              <Button id="movies" aria-controls="movies" onClick={handleOpenMenu}>Movies</Button>
+              <Menu style={{ marginTop: '40px' }} id="movies" onClose={handleMenuClose} anchorEl={anchorEl} open={open}>
+                {dropdownItems.map((item) => (
+                <MenuItem key={item.id} onClick={handleMenuClose} color="inherit" component={Link} to={item.path}>
+                {item.title}
+                </MenuItem>
+                ))}
+              </Menu>
+              <Button id="series" arial-controls="series" onClick={handleOpenMenu}>Tv Series</Button>
+              {/* <Menu style={{ marginTop: '40px' }} id="series" onClose={handleMenuClose} anchorEl={anchorEl} open={open}>
+              {dropdownTVItems.map((item) => (
+              <MenuItem key={item.id} onClick={handleMenuClose} color="inherit" component={Link} to={item.path}>
+                {item.title}
+              </MenuItem>
+              ))}
+              </Menu> */}
+            </div>
+          )}
+          
+          <MenuIcon onClick={() => setOpenDrawer(true)} className={classes.openDrawer}/>
         </Toolbar>
       </AppBar>
-      <Menu style={{ marginTop: '40px' }} id="movies" onClose={handleMenuClose} anchorEl={anchorEl} open={open}>
-        {dropdownItems.map((item) => (
-          <MenuItem key={item.id} onClick={handleMenuClose} color="inherit" component={Link} to={item.path}>
-            {item.title}
-          </MenuItem>
-        ))}
-      </Menu>
-      {/* <Menu style={{ marginTop: '40px' }} id="series" onClose={handleMenuClose} anchorEl={anchorEl} open={open}>
-        {dropdownTVItems.map((item) => (
-          <MenuItem key={item.id} onClick={handleMenuClose} color="inherit" component={Link} to={item.path}>
-            {item.title}
-          </MenuItem>
-        ))}
-      </Menu> */}
       {/* Drawer */}
-      <DrawerComponent
-        openDrawer={openDrawer}
-        setOpenDrawer={setOpenDrawer}
-      />
+      {isMatch && (
+        <DrawerComponent
+          openDrawer={openDrawer}
+          setOpenDrawer={setOpenDrawer}
+        />
+      )}
     </>
   );
 };
