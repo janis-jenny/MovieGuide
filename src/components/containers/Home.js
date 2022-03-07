@@ -12,7 +12,11 @@ import MovieList from './MovieList';
 
 const useStyles = makeStyles(() => ({
   root: {
-    backgroundColor: '#030303',
+  /*     background: '#030303',
+    height: '100vh',
+    margin: '0',
+    overflow: 'hidden',
+    display: 'block', */
   },
 }));
 
@@ -32,11 +36,11 @@ const Home = () => {
 
   const renderList = useCallback(
     () => {
-      if (isLoading) return <GridItem colSpan={5} className="my-5"><Loader /></GridItem>;
+      if (isLoading) return <GridItem colSpan={5}><Loader /></GridItem>;
       if (isError) return <Error />;
 
       return (
-        <Grid container="true" direction="row" justify="center" alignItems="center" className={classes.root}>
+        <Grid container="true" direction="row" justify="center" alignItems="center">
           {movies?.results.filter(
             (item) => item.media_type !== 'person' && item.title !== undefined && !!item.poster_path && !!item.backdrop_path,
           ).map(

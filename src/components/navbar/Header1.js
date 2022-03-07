@@ -7,20 +7,19 @@ import {
   Toolbar,
   IconButton,
   makeStyles,
-  /*   Tabs,
-  Tab, */
   Button,
   Menu,
   MenuItem,
   useTheme,
   useMediaQuery,
 } from '@material-ui/core';
+import MenuIcon from "@material-ui/icons/Menu";
 import { dropdownItems, dropdownTVItems } from './NavItems';
 // import MenuIcon from '@material-ui/icons/Menu';
 /* import TrendingUpIcon from '@material-ui/icons/TrendingUp';
 import LocalMoviesIcon from '@material-ui/icons/LocalMovies';
 import LiveTvIcon from '@material-ui/icons/LiveTv'; */
-// import DrawerComponent from "./DrawerComponent";
+import DrawerComponent from './Drawer';
 
 // customise component
 const useStyles = makeStyles((theme) => ({
@@ -43,10 +42,11 @@ const NavbarComponet = () => {
   // css
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = useState(null);
+  const [openDrawer, setOpenDrawer] = useState(true);
   const open = Boolean(anchorEl);
   // theme customisation
   const theme = useTheme();
-  const isMatch = useMediaQuery(theme.breakpoints.down('sm'));
+  // const isMatch = useMediaQuery(theme.breakpoints.down('sm'));
 
   const handleOpenMenu = (e) => {
     setAnchorEl(e.currentTarget);
@@ -69,21 +69,17 @@ const NavbarComponet = () => {
           <IconButton
             edge="start"
             className={classes.menuButton}
-            color="inherit"
             aria-label="menu"
             component={Link}
             to="/"
           >
             MovieGuide
           </IconButton>
-
-          {/* <MenuIcon onClick={setOpenDrawer} className={classes.openDrawer} /> */}
-          {!isMatch && (
-            <>
-              <Button id="movies" aria-controls="movies" onClick={handleOpenMenu}>Movies</Button>
-              <Button id="series" arial-controls="series" onClick={handleOpenMenu}>Tv Series</Button>
-            </>
-          )}
+          <div>
+            <Button id="movies" aria-controls="movies" onClick={handleOpenMenu}>Movies</Button>
+            <Button id="series" arial-controls="series" onClick={handleOpenMenu}>Tv Series</Button>
+          </div>
+          <MenuIcon onClick={setOpenDrawer} className={classes.openDrawer}/>
         </Toolbar>
       </AppBar>
       <Menu style={{ marginTop: '40px' }} id="movies" onClose={handleMenuClose} anchorEl={anchorEl} open={open}>
@@ -101,12 +97,10 @@ const NavbarComponet = () => {
         ))}
       </Menu> */}
       {/* Drawer */}
-      {/* {isMatch && (
-        <DrawerComponent
-          openDrawer={openDrawer}
-          setOpenDrawer={setOpenDrawer}
-        />
-      )} */}
+      <DrawerComponent
+        openDrawer={openDrawer}
+        setOpenDrawer={setOpenDrawer}
+      />
     </>
   );
 };

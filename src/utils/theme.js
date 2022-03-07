@@ -6,12 +6,12 @@ const theme = createTheme({
       main: '#3e3f3a',
     },
     secondary: {
-      main: '#a99561',
+      main: '#fff',
     },
     common: {
       drawer: '#a99561',
     },
-    type: 'dark',
+    type: 'light',
   },
 });
 
