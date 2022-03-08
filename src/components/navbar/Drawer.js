@@ -38,10 +38,10 @@ const DrawerComponent = ({ openDrawer, setOpenDrawer }) => {
 
   return (
     <Drawer
+      anchor="right"
       classes={{ paper: classes.drawer }}
       open={openDrawer}
-      onClose={() => setOpenDrawer(true)}
-      anchor="right"
+      onClose={setOpenDrawer}
     >
       <List className={classes.link}>
         <ListItem>

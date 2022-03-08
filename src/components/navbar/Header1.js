@@ -15,10 +15,6 @@ import {
 } from '@material-ui/core';
 import MenuIcon from "@material-ui/icons/Menu";
 import { dropdownItems, dropdownTVItems } from './NavItems';
-// import MenuIcon from '@material-ui/icons/Menu';
-/* import TrendingUpIcon from '@material-ui/icons/TrendingUp';
-import LocalMoviesIcon from '@material-ui/icons/LocalMovies';
-import LiveTvIcon from '@material-ui/icons/LiveTv'; */
 import DrawerComponent from './Drawer';
 
 // customise component
@@ -27,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   menuButton: {
-    marginRight: theme.spacing(2),
+    marginRight: theme.spacing(4),
   },
   title: {
     flexGrow: 1,
@@ -42,21 +38,20 @@ const NavbarComponet = () => {
   // css
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = useState(null);
-  const [openDrawer, setOpenDrawer] = useState(false);
+  const [openDrawer, setOpenDrawer] = useState(true);
   const open = Boolean(anchorEl);
-  // theme customisation
-  const theme = useTheme();
-  const isMatch = useMediaQuery(theme.breakpoints.down('sm'));
+  // theme customisation 
+  const theme = useTheme(); // to access a default theme inside this component like breakpoints
+  const isMatch = useMediaQuery(theme.breakpoints.down('sm')); // it's a boolean if matches the breakpoints (true) or not (false) 
 
   const handleOpenMenu = (e) => {
     setAnchorEl(e.currentTarget);
   };
 
   const handleMenuClose = () => {
-    /*     if (dropdown.current && dropdown.current.contains(event.target)) {
+    /* if (dropdown.current && dropdown.current.contains(event.target)) {
       return;
     } */
-
     setAnchorEl(false);
   };
 
@@ -79,7 +74,7 @@ const NavbarComponet = () => {
               <Menu style={{ marginTop: '40px' }} id="movies" onClose={handleMenuClose} anchorEl={anchorEl} open={open}>
                 {dropdownItems.map((item) => (
                 <MenuItem key={item.id} onClick={handleMenuClose} color="inherit" component={Link} to={item.path}>
-                {item.title}
+                  {item.title}
                 </MenuItem>
                 ))}
               </Menu>
@@ -93,8 +88,9 @@ const NavbarComponet = () => {
               </Menu> */}
             </div>
           )}
-          
-          <MenuIcon onClick={() => setOpenDrawer(true)} className={classes.openDrawer}/>
+          <IconButton onClick={() => setOpenDrawer(false)} className={classes.openDrawer}>
+            <MenuIcon/>
+          </IconButton>
         </Toolbar>
       </AppBar>
       {/* Drawer */}
