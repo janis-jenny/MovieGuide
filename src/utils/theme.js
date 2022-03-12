@@ -11,7 +11,7 @@ const theme = createTheme({
     common: {
       drawer: '#a99561',
     },
-    type: 'light',
+    type: 'dark',
   },
 });
 

@@ -13,9 +13,8 @@ body {
   font-family: "Montserrat", helvetica, arial, sans-serif;
   font-size: 14px;
   font-weight: 400;
-  height: 100%;
-  /* overflow: 'hidden', */
-  /* background: #030303; */
+  height: auto;
+  background: #030303;
 }
 
 ul {
@@ -54,4 +53,8 @@ h3 {
 h5 {
   font-size: 10px;
   font-weight: 300;
+}
+
+.App {
+  background: #030303;
 }

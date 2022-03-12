@@ -16,17 +16,15 @@ import {
 import MenuIcon from "@material-ui/icons/Menu";
 import { dropdownItems, dropdownTVItems } from './NavItems';
 import DrawerComponent from './Drawer';
+import headertStyle from '../../style/header.module.css';
 
 // customise component
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
-  menuButton: {
+  name: {
     marginRight: theme.spacing(4),
-  },
-  title: {
-    flexGrow: 1,
   },
   openDrawer: {
     marginLeft: 'auto',
@@ -61,7 +59,7 @@ const NavbarComponet = () => {
         <Toolbar color="primary">
           <IconButton
             edge="start"
-            className={classes.menuButton}
+            className={`${classes.name} ${headertStyle.links}`}
             aria-label="menu"
             component={Link}
             to="/"
@@ -73,7 +71,7 @@ const NavbarComponet = () => {
               <Button id="movies" aria-controls="movies" onClick={handleOpenMenu}>Movies</Button>
               <Menu style={{ marginTop: '40px' }} id="movies" onClose={handleMenuClose} anchorEl={anchorEl} open={open}>
                 {dropdownItems.map((item) => (
-                <MenuItem key={item.id} onClick={handleMenuClose} color="inherit" component={Link} to={item.path}>
+                <MenuItem key={item.id} onClick={handleMenuClose} component={Link} to={item.path} className={headertStyle.links}>
                   {item.title}
                 </MenuItem>
                 ))}
@@ -88,7 +86,7 @@ const NavbarComponet = () => {
               </Menu> */}
             </div>
           )}
-          <IconButton onClick={() => setOpenDrawer(false)} className={classes.openDrawer}>
+          <IconButton edge="end" onClick={() => setOpenDrawer(false)} className={`${classes.openDrawer} ${headertStyle.links}`}>
             <MenuIcon/>
           </IconButton>
         </Toolbar>
