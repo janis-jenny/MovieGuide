@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import { Box, Grid, GridItem } from '@chakra-ui/react';
 import {
-  TextField, Container, IconButton, InputAdornment, makeStyles,
+  TextField, Container, IconButton, InputAdornment,
 } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import { useDebounce } from 'use-debounce';
@@ -10,18 +10,7 @@ import Loader from '../shared/Loader';
 import Error from '../shared/Error';
 import MovieList from './MovieList';
 
-const useStyles = makeStyles(() => ({
-  root: {
-  /*     background: '#030303',
-    height: '100vh',
-    margin: '0',
-    overflow: 'hidden',
-    display: 'block', */
-  },
-}));
-
 const Home = () => {
-  const classes = useStyles();
   const [searchText, setSearchText] = useState('');
   const [value] = useDebounce(searchText, 500);
   // helps to add a timer between key strokes events and avoids overload the memory
@@ -61,7 +50,7 @@ const Home = () => {
   );
 
   return (
-    <div className={classes.root}>
+    <div>
       <Container>
         <form variant="standard" onSubmit={searchHandler} noValidate autoComplete="off" style={{ display: 'flex', justifyContent: 'center' }}>
           <TextField
