@@ -10,21 +10,21 @@
 }
 
 .link {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .movie_card:hover {
-    transform: scale(1.02);
-    transition: all 0.4s;
+  transform: scale(1.02);
+  transition: all 0.4s;
 }
 
 .movie_card .info_section {
-    position: relative;
-    width: 100%;
-    height: 110%;
-    background-blend-mode: multiply;
-    z-index: 2;
-    border-radius: 12px;
+  position: relative;
+  width: 100%;
+  height: 110%;
+  background-blend-mode: multiply;
+  z-index: 2;
+  border-radius: 12px;
 }
 
 .movie_card .info_section .movie_header {
@@ -93,95 +93,92 @@
 }
 
 @media screen and (min-width: 768px) {
-    .movie_card {
-      width: 80%;
-      margin: 20px auto;
-      min-height: 250px;
-      height: auto;
-    }
+  .movie_card {
+    width: 80%;
+    margin: 20px auto;
+    min-height: 250px;
+    height: auto;
+  }
 
-    .movie_card:hover {
-      transform: scale(1.02);
-      transition: all 0.4s;
-    }
+  .movie_card:hover {
+    transform: scale(1.02);
+    transition: all 0.4s;
+  }
 
-    .movie_header {
-      width: 50%;
-    }
+  .movie_header {
+    width: 50%;
+  }
 
-    .movie_card .info_section .movie_header h4 {
-      overflow: hidden;
-      word-break: break-word;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      text-overflow: ellipsis;
-      -webkit-box-orient: vertical;
-      margin-right: 6px;
-    }
+  .movie_card .info_section .movie_header h4 {
+    overflow: hidden;
+    word-break: break-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    margin-right: 6px;
+  }
 
-    .movie_desc {
-      width: 50%;
-    }
+  .movie_desc {
+    width: 50%;
+  }
 
-    .info_section {
-      background: linear-gradient(to right, #0d0d0c 50%, transparent 100%);
-    }
+  .info_section {
+    background: linear-gradient(to right, #0d0d0c 50%, transparent 100%);
+  }
 
-    .blur_back {
-      width: 80%;
-      background-position: -100% 10% !important;
-    }
+  .blur_back {
+    width: 80%;
+    background-position: -100% 10% !important;
+  }
 }
 
 @media screen and (max-width: 768px) {
-    .movie_card {
-      width: 98%;
-      margin: 20px auto;
-      min-height: 370px;
-      height: auto;
-    }
+  .movie_card {
+    width: 98%;
+    margin: 20px auto;
+    min-height: 370px;
+    height: auto;
+  }
 
-    .movie_card:hover {
-      transform: scale(1.02);
-      transition: all 0.4s;
-    }
+  .movie_card:hover {
+    transform: scale(1.02);
+    transition: all 0.4s;
+  }
 
-    .movie_card .info_section .movie_header h4 {
-      overflow: hidden;
-      word-break: break-word;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      text-overflow: ellipsis;
-      -webkit-box-orient: vertical;
-      margin-right: 10px;
-    }
+  .movie_card .info_section .movie_header h4 {
+    overflow: hidden;
+    word-break: break-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    margin-right: 10px;
+  }
 
-    .blur_back {
-      width: 100%;
-      background-position: 50% 50% !important;
-    }
+  .blur_back {
+    width: 100%;
+    background-position: 50% 50% !important;
+  }
 
-    .movie_header {
-      width: 95%;
-      margin-top: 85px;
-    }
+  .movie_header {
+    width: 95%;
+    margin-top: 85px;
+  }
 
-    .movie_desc {
-      width: 88%;
-    }
+  .movie_desc {
+    width: 88%;
+  }
 
-    .info_section {
-      background: linear-gradient(to top, #141413 50%, transparent 100%);
-      display: inline-grid;
-    }
+  .info_section {
+    background: linear-gradient(to top, #141413 50%, transparent 100%);
+    display: inline-grid;
+  }
 }
 
 @media screen and (min-width: 1440px) {
   .movie_card {
     width: 85%;
-    /*margin: 20px auto;
-      min-height: 370px;
-      height: auto; */
   }
 
   .blur_back {

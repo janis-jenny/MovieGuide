@@ -3,11 +3,9 @@ import {
   QueryClient,
   QueryClientProvider,
 } from 'react-query';
-// import { ReactQueryDevtools } from "react-query/devtools";
-import NavbarComponet from './navbar/Header1';
+import NavbarComponet from './navbar/Header';
 import MovieDetails from './containers/MovieDetails';
 import TvDetails from './containers/TvDetails';
-// import MovieList from './containers/MovieList';
 import Home from './containers/Home';
 import PopularMovies from './containers/PopularMovies';
 import UpcomingMovies from './containers/UpcomingMovies';
@@ -27,7 +25,6 @@ const App = () => (
           <Route path="/upcoming" exact component={UpcomingMovies} />
           <Route path="/populartv" exact component={PopularTvShows} />
           <Route path="/toprated" exact component={TopRatedShows} />
-          {/* <Route path="/search" exact component={MovieList} /> */}
           <Route path="/movie/:movieId" exact component={MovieDetails} />
           <Route path="/tv/:tvId" exact component={TvDetails} />
         </Switch>

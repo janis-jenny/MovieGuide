@@ -36,12 +36,13 @@ const DrawerComponent = ({ openDrawer, setOpenDrawer }) => {
     history.push(`/${link}`);
   };
 
+  console.log(openDrawer);
   return (
     <Drawer
       anchor="right"
       classes={{ paper: classes.drawer }}
       open={openDrawer}
-      onClose={setOpenDrawer}
+      onClose={() => setOpenDrawer(false)}
     >
       <List className={classes.link}>
         <ListItem>
