@@ -1,5 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable */
+/* eslint-disable react/linebreak-style */
+
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
@@ -16,6 +18,7 @@ import {
 import MenuIcon from "@material-ui/icons/Menu";
 import { dropdownItems, dropdownTVItems } from './NavItems';
 import DrawerComponent from './Drawer';
+import Logo from '../../images/logoM..jpg';
 import headertStyle from '../../style/header.module.css';
 
 // customise component
@@ -35,8 +38,8 @@ const useStyles = makeStyles((theme) => ({
 const NavbarComponet = () => {
   // css
   const classes = useStyles();
-  const [anchorElMovies, setAnchorElMovies] = useState(null);
-  const [anchorElSeries, setAnchorElSeries] = useState(null);
+  const [anchorElMovies, setAnchorElMovies] = useState(false);
+  const [anchorElSeries, setAnchorElSeries] = useState(false);
   const [openDrawer, setOpenDrawer] = useState(false);
 
   const open = Boolean(anchorElMovies);
@@ -47,7 +50,7 @@ const NavbarComponet = () => {
   const isMatch = useMediaQuery(theme.breakpoints.down('sm')); // it's a boolean if matches the breakpoints (true) or not (false) 
 
   const handleOpenMenuOne = (e) => {
-    setAnchorEl(e.currentTarget);
+    setAnchorElMovies(e.currentTarget);
   };
 
   const handleOpenMenuTwo = (e) => {
@@ -55,11 +58,11 @@ const NavbarComponet = () => {
   };
 
   const handleMenuCloseOne = () => {
-    setAnchorEl(false);
+    setAnchorElMovies(!anchorElMovies);
   };
 
   const handleMenuCloseTwo = () => {
-    setAnchorElSeries(false);
+    setAnchorElSeries(!anchorElSeries);
   };
 
   return (
@@ -73,7 +76,7 @@ const NavbarComponet = () => {
             component={Link}
             to="/"
           >
-            MovieGuide
+            <img src={Logo} className={headertStyle.img}/>
           </IconButton>
           {!isMatch && (
             <div>

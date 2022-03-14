@@ -36,7 +36,6 @@ const DrawerComponent = ({ openDrawer, setOpenDrawer }) => {
     history.push(`/${link}`);
   };
 
-  console.log(openDrawer);
   return (
     <Drawer
       anchor="right"
