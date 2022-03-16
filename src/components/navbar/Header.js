@@ -54,7 +54,7 @@ const NavbarComponet = () => {
   };
 
   const handleOpenMenuTwo = (e) => {
-    setAnchorElMovies(e.currentTarget);
+    setAnchorElSeries(e.currentTarget);
   };
 
   const handleMenuCloseOne = () => {
@@ -88,6 +88,7 @@ const NavbarComponet = () => {
                 </MenuItem>
                 ))}
               </Menu>
+              &nbsp;&nbsp;&nbsp;
               <Button id="series" arial-controls="series" onClick={handleOpenMenuTwo}>Tv Series</Button>
               <Menu style={{ marginTop: '40px' }} id="series" onClose={handleMenuCloseTwo} anchorEl={anchorElSeries} open={open2}>
               {dropdownTVItems.map((item) => (
