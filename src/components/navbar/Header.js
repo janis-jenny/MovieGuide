@@ -13,13 +13,10 @@ import {
   useMediaQuery,
 } from '@material-ui/core';
 import MenuIcon from "@material-ui/icons/Menu";
-/* import DropdownMovies from './DropdownMovies';
-import DropdownSeries from './DropdownSeries'; */
 import DrawerComponent from './Drawer';
 import Logo from '../../images/logoM..jpg';
 import headertStyle from '../../style/header.module.css';
 import loadable from '@loadable/component'
-import Loader from '../shared/Loader';
 
 // customise component
 const useStyles = makeStyles((theme) => ({
@@ -44,12 +41,8 @@ const NavbarComponet = () => {
   const theme = useTheme(); // to access a default theme inside this component like breakpoints
   const isMatch = useMediaQuery(theme.breakpoints.down('sm')); // it's a boolean if matches the breakpoints (true) or not (false) 
 
-  const DropdownMovies = loadable(() => import('./DropdownMovies'), {
-    fallback: Loader,
-  })
-  const DropdownSeries = loadable(() => import('./DropdownSeries'), {
-    fallback: Loader,
-  })
+  const DropdownMovies = loadable(() => import('./DropdownMovies'))
+  const DropdownSeries = loadable(() => import('./DropdownSeries'))
 
   return (
     <>

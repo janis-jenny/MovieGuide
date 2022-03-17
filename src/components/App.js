@@ -3,16 +3,22 @@ import {
   QueryClient,
   QueryClientProvider,
 } from 'react-query';
-import NavbarComponet from './navbar/Header';
-import MovieDetails from './containers/MovieDetails';
-import TvDetails from './containers/TvDetails';
-import Home from './containers/Home';
-import PopularMovies from './containers/PopularMovies';
-import UpcomingMovies from './containers/UpcomingMovies';
-import PopularTvShows from './containers/PopularTvShows';
-import TopRatedShows from './containers/TopRatedTvShows';
+import React from 'react';
+import loadable from '@loadable/component';
+// import Loader from './shared/Loader';
 
 const queryClient = new QueryClient();
+
+// const Loading = () => <Loader />;
+
+const NavbarComponet = loadable(() => import('./navbar/Header'));
+const Home = loadable(() => import('./containers/Home'));
+const PopularMovies = loadable(() => import('./containers/PopularMovies'));
+const UpcomingMovies = loadable(() => import('./containers/UpcomingMovies'));
+const PopularTvShows = loadable(() => import('./containers/PopularTvShows'));
+const TopRatedShows = loadable(() => import('./containers/TopRatedTvShows'));
+const MovieDetails = loadable(() => import('./containers/MovieDetails'));
+const TvDetails = loadable(() => import('./containers/TvDetails'));
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
