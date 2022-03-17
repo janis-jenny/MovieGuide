@@ -1,14 +1,3 @@
-export const navItems = [
-  {
-    id: 1,
-    title: 'Movies',
-  },
-  {
-    id: 2,
-    title: 'TV Series',
-  },
-];
-
 export const dropdownItems = [
   {
     id: 1,

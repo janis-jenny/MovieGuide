@@ -1,29 +1,44 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import {
+  Button,
+  Menu,
+  MenuItem,
+} from '@material-ui/core';
 import { dropdownItems } from './NavItems';
+import headertStyle from '../../style/header.module.css';
 
-function Dropdown() {
-  const [dropdown, setDropdown] = useState(false);
+function DropdownMovies() {
+  const [anchorElMovies, setAnchorElMovies] = useState(false);
+
+  const open = Boolean(anchorElMovies);
+
+  const handleOpenMenuMovies = (e) => {
+    setAnchorElMovies(e.currentTarget);
+  };
+
+  const handleMenuCloseMovies = () => {
+    setAnchorElMovies(!anchorElMovies);
+  };
 
   return (
     <>
-      <ul className="dropdown-menu show" onClick={() => setDropdown(!dropdown)}>
+      <Button id="movies" aria-controls="movies" onClick={handleOpenMenuMovies}>Movies</Button>
+      <Menu style={{ marginTop: '40px' }} id="movies" onClose={handleMenuCloseMovies} anchorEl={anchorElMovies} open={open}>
         {dropdownItems.map((item) => (
-          <li key={item.id}>
-            <Link
-              to={item.path}
-              className={item.cName}
-              data-popper-placement="bottom-start"
-            >
-              {item.title}
-            </Link>
-          </li>
+          <MenuItem
+            key={item.id}
+            onClick={handleMenuCloseMovies}
+            component={Link}
+            to={item.path}
+            className={headertStyle.links}
+          >
+            {item.title}
+          </MenuItem>
         ))}
-      </ul>
+      </Menu>
     </>
   );
 }
 
-export default Dropdown;
+export default DropdownMovies;
