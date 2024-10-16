@@ -50,7 +50,7 @@ const Home = () => {
   return (
     <>
       <Container>
-        <form variant="standard" onSubmit={searchHandler} noValidate autoComplete="off" style={{ display: 'flex', justifyContent: 'center' }}>
+        <form onSubmit={searchHandler} noValidate autoComplete="off" style={{ display: 'flex', justifyContent: 'center' }}>
           <TextField
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}

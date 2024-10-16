@@ -32,7 +32,7 @@ const TopRatedShows = () => {
           id={item.id}
         />
       ));
-    },
+    }
   );
 
   return (

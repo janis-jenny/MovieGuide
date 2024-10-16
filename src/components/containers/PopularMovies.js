@@ -33,7 +33,7 @@ const PopularMovies = () => {
             id={item.id}
           />
       ));
-    },
+    }
   );
 
   return (

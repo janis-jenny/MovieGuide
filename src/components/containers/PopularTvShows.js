@@ -32,7 +32,7 @@ const PopularTvShows = () => {
           id={item.id}
         />
       ));
-    },
+    }
   );
 
   return (

@@ -144,7 +144,7 @@ CardDetails.propTypes = {
   firstDate: PropTypes.string,
   popularity: PropTypes.number,
   // bgimg: PropTypes.string,
-  genres: PropTypes.arrayOf(PropTypes.object),
+  genres: PropTypes.arrayOf(PropTypes.any),
   time: PropTypes.number,
   tagline: PropTypes.string,
   overview: PropTypes.string,
