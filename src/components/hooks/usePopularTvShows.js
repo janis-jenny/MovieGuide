@@ -5,6 +5,7 @@ import { BASE_URL, API_KEY } from '../../Api';
 const usePopularTv = (pageNumber) => useQuery(
     ['popular-tvshows', { pageNumber }], async () => {
         const { data } = await BASE_URL.get(`/tv/popular?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&page=${pageNumber}`);
+        console.log("data", data)
         return data;
     }, 
     {
